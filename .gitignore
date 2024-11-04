@@ -1,0 +1,40 @@
+# Node.js / Express
+node_modules/
+.env
+.DS_Store
+logs/
+*.log
+pids/
+*.pid
+*.seed
+*.pid.lock
+coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/tmp
+dist/
+
+# React / Vite
+node_modules/
+dist/
+*.log
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.cache/
+.vscode/
+.idea/
+
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Others
+*.sublime-workspace
+*.swp
+*.bak
+*.tmp
+*.env.*
