@@ -1,41 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'
-import Message from './components/Message';
-//q4P2YcOCq1qQ14HA
+import React, { useState, useEffect } from "react";
+import FridgeList from "./components/FridgeList";
+import FridgeForm from "./components/FridgeForm";
 
-function App() { 
-  const [count, setCount] = useState(0)
+function App() {
+  const [items, setItems] = useState([]);
+
+  // Fetch items from the backend when the component mounts
+  useEffect(() => {
+    fetch("http://localhost:5000/items")
+      .then(response => response.json())
+      .then(data => setItems(data))
+      .catch(error => console.error("Error fetching items:", error));
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <div><Message/></div>
-    </>
-  )
-
-  return <div><Message/></div>
+    <div>
+      <h1>My Fridge System</h1>
+      <FridgeList items={items} setItems={setItems} />
+    </div>
+  );
 }
 
 export default App;
