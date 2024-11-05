@@ -5,6 +5,8 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
   const [expiryDate, setExpiryDate] = useState(editItem ? editItem.expiryDate : "");
   const [price, setPrice] = useState(editItem ? editItem.price : "");
   const [quantity, setQuantity] = useState(editItem ? editItem.quantity : "");
+  
+  const [status, setStatus] = useState(false);
 
   useEffect(() => {
     if (editItem) {
@@ -12,6 +14,7 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
       setExpiryDate(editItem.expiryDate);
       setPrice(editItem.price);
       setQuantity(editItem.quantity);
+      setStatus(false); 
     }
   }, [editItem]);
 
@@ -32,7 +35,8 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
         });
 
     const newItem = await response.json();
-    onSubmit(newItem);
+    onSubmit(newItem);  
+    onClose();  
   };
 
   return (
@@ -68,8 +72,11 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
           type="number"
           min="1"
           value={quantity}
-          onChange={(e) => setQuantity(e.target.value)}
-          required
+          onChange={(e) => {
+            setQuantity(e.target.value);
+            console.log("Quantity on change:", e.target.value);  // Log to confirm change
+          }}
+           required
         />
 
         <button type="submit">{editItem ? "Update" : "Add"} Item</button>

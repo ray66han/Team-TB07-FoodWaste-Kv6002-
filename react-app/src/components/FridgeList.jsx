@@ -40,13 +40,17 @@ const FridgeList = () => {
     );
   };
 
-  const handleFormSubmit = (newItem) => {
+  const handleFormSubmit = (submittedItem) => {
     setItems((prevItems) => {
-      return editItem
-        ? prevItems.map((item) => (item._id === newItem._id ? newItem : item))
-        : [...prevItems, newItem];
+      if (editItem) {
+        return prevItems.map((item) =>
+          item._id === submittedItem._id ? submittedItem : item
+        );
+      } else {
+        return [...prevItems, submittedItem];
+      }
     });
-    setShowForm(false);
+    setShowForm(false); 
   };
 
   return (
@@ -78,7 +82,7 @@ const FridgeList = () => {
               <td>{item.name}</td>
               <td>{new Date(item.expiryDate).toLocaleDateString("en-CA")}</td>
               <td>£{item.price}</td>
-              <td>{item.quantity}</td>
+              <td>{item.quantity}</td> 
               <td>
                 <input
                   type="checkbox"
