@@ -1,15 +1,23 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const FridgeForm = ({ editItem, onClose, onSubmit }) => {
-  const [name, setName] = useState(editItem?.name || "");  // Ensure default value is an empty string
-  const [expiryDate, setExpiryDate] = useState(editItem?.expiryDate || ""); // Default to empty string
-  const [price, setPrice] = useState(editItem?.price || ""); // Default to empty string
-  const [quantity, setQuantity] = useState(editItem?.quantity || ""); // Default to empty string
-  const [status, setStatus] = useState(editItem?.status || false); // Default to false for checkbox
+  const [name, setName] = useState(editItem ? editItem.name : "");
+  const [expiryDate, setExpiryDate] = useState(editItem ? editItem.expiryDate : "");
+  const [price, setPrice] = useState(editItem ? editItem.price : "");
+  const [quantity, setQuantity] = useState(editItem ? editItem.quantity : "");
+
+  useEffect(() => {
+    if (editItem) {
+      setName(editItem.name);
+      setExpiryDate(editItem.expiryDate);
+      setPrice(editItem.price);
+      setQuantity(editItem.quantity);
+    }
+  }, [editItem]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const itemData = { name, expiryDate, price, quantity, status };
+    const itemData = { name, expiryDate, price, quantity };
 
     const response = editItem
       ? await fetch(`http://localhost:5000/items/${editItem._id}`, {
@@ -25,16 +33,6 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
 
     const newItem = await response.json();
     onSubmit(newItem);
-
-    // Reset the form after submission
-    setName("");
-    setExpiryDate("");
-    setPrice("");
-    setQuantity("");
-    setStatus(false);
-
-    // Close the form modal
-    onClose();
   };
 
   return (
@@ -72,13 +70,6 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
           value={quantity}
           onChange={(e) => setQuantity(e.target.value)}
           required
-        />
-
-        <label>Status:</label>
-        <input
-          type="checkbox"
-          checked={status}
-          onChange={(e) => setStatus(e.target.checked)}
         />
 
         <button type="submit">{editItem ? "Update" : "Add"} Item</button>

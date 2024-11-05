@@ -3,7 +3,7 @@ import FridgeForm from "./FridgeForm";
 
 const FridgeList = () => {
   const [items, setItems] = useState([]);
-  const [showForm, setShowForm] = useState(false);  // Form is hidden by default
+  const [showForm, setShowForm] = useState(false);
   const [editItem, setEditItem] = useState(null);
 
   useEffect(() => {
@@ -14,13 +14,13 @@ const FridgeList = () => {
   }, []);
 
   const handleAddButtonClick = () => {
-    setEditItem(null);  // Reset edit item
-    setShowForm(true);  // Show form
+    setEditItem(null);
+    setShowForm(true);
   };
 
   const handleEditButtonClick = (item) => {
-    setEditItem(item);  // Set item to edit
-    setShowForm(true);  // Show form
+    setEditItem(item);
+    setShowForm(true);
   };
 
   const handleDelete = async (id) => {
@@ -28,14 +28,25 @@ const FridgeList = () => {
     setItems(items.filter((item) => item._id !== id));
   };
 
+  const handleStatusChange = async (item) => {
+    const updatedItem = { ...item, status: !item.status };
+    await fetch(`http://localhost:5000/items/${item._id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updatedItem),
+    });
+    setItems((prevItems) =>
+      prevItems.map((i) => (i._id === item._id ? updatedItem : i))
+    );
+  };
+
   const handleFormSubmit = (newItem) => {
     setItems((prevItems) => {
-      // Update items array if editing, or add if new item
       return editItem
         ? prevItems.map((item) => (item._id === newItem._id ? newItem : item))
         : [...prevItems, newItem];
     });
-    setShowForm(false);  // Hide form on submit
+    setShowForm(false);
   };
 
   return (
@@ -43,10 +54,10 @@ const FridgeList = () => {
       <button onClick={handleAddButtonClick}>Add Item</button>
 
       {showForm && (
-        <FridgeForm 
-          editItem={editItem} 
-          onClose={() => setShowForm(false)} 
-          onSubmit={handleFormSubmit} 
+        <FridgeForm
+          editItem={editItem}
+          onClose={() => setShowForm(false)}
+          onSubmit={handleFormSubmit}
         />
       )}
 
@@ -57,6 +68,7 @@ const FridgeList = () => {
             <th>Expiry Date</th>
             <th>Price (£)</th>
             <th>Quantity</th>
+            <th>Status</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -64,9 +76,16 @@ const FridgeList = () => {
           {items.map((item) => (
             <tr key={item._id}>
               <td>{item.name}</td>
-              <td>{item.expiryDate}</td>
+              <td>{new Date(item.expiryDate).toLocaleDateString("en-CA")}</td>
               <td>£{item.price}</td>
               <td>{item.quantity}</td>
+              <td>
+                <input
+                  type="checkbox"
+                  checked={item.status}
+                  onChange={() => handleStatusChange(item)}
+                />
+              </td>
               <td>
                 <button onClick={() => handleEditButtonClick(item)}>Edit</button>
                 <button onClick={() => handleDelete(item._id)}>Delete</button>
