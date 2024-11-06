@@ -19,7 +19,6 @@ function App() {
     <div>
       <Navbar />
       <FridgePage />
-      {/* <FridgeList items={items} setItems={setItems} /> */}
     </div>
   );
 }

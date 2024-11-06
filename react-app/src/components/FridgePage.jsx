@@ -1,6 +1,6 @@
 import React from 'react';
 import FridgeList from "./FridgeList";
-import './styles/FridgePage.css';
+import './styles/FridgePage.css'; 
 
 const FridgePage = () => {
   return (
@@ -22,6 +22,10 @@ const FridgePage = () => {
           <p>Items wasted: 2</p>
           <p>Soon-to-Expire: 4</p>
         </div>
+      </div>
+      <div className="tips-section">
+          <h3>Personalized Tips</h3>
+          <p>This is where the tips will be dynamically displayed</p>
       </div>
     </div>
   );
