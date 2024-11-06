@@ -1,0 +1,26 @@
+.fridge-page {
+  background-color: #8fc982; 
+  padding: 2rem;
+  color: #fff;
+}
+
+.fridge-table {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  color: #333;
+}
+
+.side-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.saved-info,
+.wasted-info {
+  background-color: #f0f0f0;
+  padding: 1rem;
+  border-radius: 8px;
+  color: #333;
+}

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import FridgeList from "./components/FridgeList";
 import FridgeForm from "./components/FridgeForm";
+import Navbar from './components/Navbar';
+import FridgePage from './components/FridgePage';
 
 function App() {
   const [items, setItems] = useState([]);
@@ -15,8 +17,9 @@ function App() {
 
   return (
     <div>
-      <h1>My Fridge System</h1>
-      <FridgeList items={items} setItems={setItems} />
+      <Navbar />
+      <FridgePage />
+      {/* <FridgeList items={items} setItems={setItems} /> */}
     </div>
   );
 }
