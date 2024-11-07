@@ -9,7 +9,7 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
   const [category, setCategory] = useState(editItem ? editItem.category : "");
 
   // Predefined categories for selection
-  const categories = ["Dairy", "Meat", "Vegetables", "Fruits", "Beverages", "Others"];
+  const categories = ["Dairy", "Meat", "Vegetables", "Fruits", "Beverages", "Miscellaneous"];
 
   useEffect(() => {
     if (editItem) {
@@ -48,6 +48,7 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
         <button className="close-button" onClick={onClose}>×</button>
         <h2>{editItem ? "Edit Item" : "Add Item"}</h2>
         <form onSubmit={handleSubmit}>
+        <div className="form-group">
           <label>Name:</label>
           <input
             type="text"
@@ -55,7 +56,9 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
             onChange={(e) => setName(e.target.value)}
             required
           />
+          </div>
 
+          <div className="form-group">
           <label>Expiry Date:</label>
           <input
             type="date"
@@ -63,7 +66,9 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
             onChange={(e) => setExpiryDate(e.target.value)}
             required
           />
+          </div>
 
+          <div className="form-group">
           <label>Price (£):</label>
           <input
             type="number"
@@ -72,7 +77,9 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
             onChange={(e) => setPrice(e.target.value)}
             required
           />
+          </div>
 
+          <div className="form-group">
           <label>Quantity:</label>
           <input
             type="number"
@@ -81,7 +88,9 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
             onChange={(e) => setQuantity(e.target.value)}
             required
           />
+          </div>
 
+          <div className="form-group">
           <label>Category:</label>
           <select
             value={category}
@@ -95,11 +104,11 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
               </option>
             ))}
           </select>
+          </div>
 
           <button className="btn btn-success" type="submit">
             {editItem ? "Update" : "Add"} Item
           </button>
-          <button className="btn btn-secondary" type="button" onClick={onClose}>Cancel</button>
         </form>
       </div>
     </div>

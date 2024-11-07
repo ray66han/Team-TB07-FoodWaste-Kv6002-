@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
-import FridgeList from "./components/FridgeList";
-import FridgeForm from "./components/FridgeForm";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import HomePage from "./components/HomePage";
 import FridgePage from './components/FridgePage';
+import LoginPage from "./components/LoginPage";
+import SettingsPage from "./components/SettingsPage";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -16,10 +18,15 @@ function App() {
   }, []);
 
   return (
-    <div>
-      <Navbar />
-      <FridgePage />
-    </div>
+    <Router>
+    <Navbar />
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/fridge" element={<FridgePage />} />
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/settings" element={<SettingsPage />} />
+    </Routes>
+  </Router>
   );
 }
 

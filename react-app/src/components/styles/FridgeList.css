@@ -3,6 +3,27 @@
   font-family: Arial, sans-serif;
 }
 
+.fridge-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.add-item-btn {
+  background-color: #ff6000;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.add-item-btn:hover {
+  background-color: #ff7000;
+}
+
 button {
   background-color: #4caf50;
   color: white;
@@ -55,21 +76,59 @@ th {
 
 .modal form {
   background-color: #fff;
-  padding: 20px;
+  padding: 30px;
   border-radius: 10px;
-  width: 300px;
+  width: 400px; /* Increased width for more space */
+  max-width: 80%; /* Ensures it fits smaller screens */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.modal form h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
 }
 
 .modal form label {
   display: block;
-  margin-top: 10px;
+  margin-top: 15px;
+  font-weight: bold;
 }
 
 .modal form input {
   width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  margin-bottom: 10px;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 15px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.modal form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 1rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.modal form button:hover {
+  background-color: #45a049;
+}
+
+.modal .form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.modal .form-buttons button {
+  width: 48%;  
 }

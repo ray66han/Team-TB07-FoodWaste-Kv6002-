@@ -60,11 +60,14 @@ const FridgeList = () => {
       }
     });
     setShowForm(false);
-  };
+  }; 
 
   return (
     <div>
-      <button onClick={handleAddButtonClick}>Add Item</button>
+      <div className="fridge-header">
+        <h2>Fridge</h2>
+        <button className="add-item-btn" onClick={handleAddButtonClick}>Add Item +</button>
+      </div>
 
       {showForm && (
         <FridgeForm
