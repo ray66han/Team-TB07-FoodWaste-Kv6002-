@@ -1,0 +1,134 @@
+.fridge-list {
+  margin: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.fridge-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.add-item-btn {
+  background-color: #ff6000;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.add-item-btn:hover {
+  background-color: #ff7000;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  padding: 8px 16px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: black;
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal form {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px; /* Increased width for more space */
+  max-width: 80%; /* Ensures it fits smaller screens */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.modal form h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+.modal form label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.modal form input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.modal form button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 20px;
+  font-size: 1rem;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.modal form button:hover {
+  background-color: #45a049;
+}
+
+.modal .form-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.modal .form-buttons button {
+  width: 48%;  
+}
