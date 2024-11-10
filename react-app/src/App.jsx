@@ -22,7 +22,7 @@ function App() {
     <Navbar />
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/fridge" element={<FridgePage />} />
+      <Route path="/fridge" element={<FridgePage items={items}/>} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/settings" element={<SettingsPage />} />
     </Routes>

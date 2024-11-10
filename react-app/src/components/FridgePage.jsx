@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FridgeList from "./FridgeList";
-import './styles/FridgePage.css'; 
+import Tips from "./Tips";
+import './styles/FridgePage.css';
 
 const FridgePage = () => {
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  const handleItemSelected = (category) => {
+    setSelectedCategory(category);
+  };
+
   return (
     <div className="fridge-page">
-           <div className="fridge-content">
+      <div className="fridge-content">
         <div className="fridge-table">
-          <FridgeList />
+          <FridgeList onItemSelected={handleItemSelected} />
         </div>
         <div className="side-info">
           <div className="saved-info">
@@ -25,8 +32,7 @@ const FridgePage = () => {
         </div>
       </div>
       <div className="tips-section">
-        <h3>Personalized Tips</h3>
-        <p>This is where the tips will be dynamically displayed</p>
+        <Tips selectedCategory={selectedCategory} />
       </div>
     </div>
   );

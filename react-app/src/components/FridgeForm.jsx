@@ -8,6 +8,8 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
   const [quantity, setQuantity] = useState(editItem ? editItem.quantity : "");
   const [category, setCategory] = useState(editItem ? editItem.category : "");
 
+  const today = new Date().toISOString().split("T")[0];
+
   // Predefined categories for selection
   const categories = ["Dairy", "Meat", "Vegetables", "Fruits", "Beverages", "Miscellaneous"];
 
@@ -59,14 +61,15 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
           </div>
 
           <div className="form-group">
-          <label>Expiry Date:</label>
-          <input
-            type="date"
-            value={expiryDate}
-            onChange={(e) => setExpiryDate(e.target.value)}
-            required
-          />
-          </div>
+        <label>Expiry Date:</label>
+        <input
+          type="date"
+          value={expiryDate}
+          onChange={(e) => setExpiryDate(e.target.value)}
+          min={today}  
+          required
+        />
+      </div>
 
           <div className="form-group">
           <label>Price (£):</label>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import FridgeForm from "./FridgeForm";
 import "./styles/FridgeList.css";
 
-const FridgeList = () => {
+const FridgeList = ({ onItemSelected }) => {
   const [items, setItems] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [editItem, setEditItem] = useState(null);
@@ -49,6 +49,10 @@ const FridgeList = () => {
     );
   };
 
+  const handleSelectItem = (item) => {
+    onItemSelected(item.category);  
+  };
+
   const handleFormSubmit = (submittedItem) => {
     setItems((prevItems) => {
       if (editItem) {
@@ -60,7 +64,7 @@ const FridgeList = () => {
       }
     });
     setShowForm(false);
-  }; 
+  };
 
   return (
     <div>
@@ -94,13 +98,13 @@ const FridgeList = () => {
             <th>Expiry Date</th>
             <th>Price (£)</th>
             <th>Quantity</th>
-            <th>Status</th>
+            <th>Used/Wasted</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           {items.map((item) => (
-            <tr key={item._id}>
+            <tr key={item._id} onClick={() => handleSelectItem(item)}>
               <td>{item.name}</td>
               <td>{new Date(item.expiryDate).toLocaleDateString("en-CA")}</td>
               <td>£{item.price}</td>
