@@ -5,6 +5,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const FridgeItem = require("./models/FridgeItem");
+const cron = require("node-cron");
+const router = express.Router();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -198,6 +200,65 @@ app.delete("/items/:id", async (req, res) => {
     res.status(200).json({ message: "Item deleted successfully" });
   } catch (error) {
     res.status(500).json({ error: "Failed to delete item" });
+  }
+});
+
+router.get("/savings-stats", async (req, res) => {
+  try {
+    // Calculate the start of the current month
+    const startOfMonth = new Date();
+    startOfMonth.setDate(1);
+    startOfMonth.setHours(0, 0, 0, 0);
+
+    const items = await FridgeItem.find({ createdAt: { $gte: startOfMonth } });
+
+    let savedMoney = 0;
+    let wastedMoney = 0;
+    let itemsWasted = 0;
+    let soonToExpire = 0;
+
+    const currentDate = new Date();
+
+    items.forEach((item) => {
+      const expiryDate = new Date(item.expiryDate);
+
+      if (item.status === true && expiryDate >= currentDate) {
+        // Item was used before it expired
+        savedMoney += item.price; // Assuming `price` holds the item's value
+      } else if (expiryDate < currentDate) {
+        // Item expired without being used
+        wastedMoney += item.price;
+        itemsWasted += 1;
+      }
+
+      // Count items that are about to expire soon
+      const daysUntilExpiry =
+        (expiryDate - currentDate) / (1000 * 60 * 60 * 24);
+      if (daysUntilExpiry >= 0 && daysUntilExpiry <= 3) {
+        soonToExpire += 1;
+      }
+    });
+
+    res.json({ savedMoney, wastedMoney, itemsWasted, soonToExpire });
+  } catch (error) {
+    console.error("Error calculating savings stats:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+module.exports = router;
+
+// Scheduled task to clear items at the beginning of each month
+cron.schedule("0 0 1 * *", async () => {
+  try {
+    await FridgeItem.deleteMany({
+      expiryDate: {
+        $lt: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
+      },
+    });
+    console.log("Old items cleared at the start of the month");
+  } catch (error) {
+    console.error("Failed to clear old items:", error);
   }
 });
 

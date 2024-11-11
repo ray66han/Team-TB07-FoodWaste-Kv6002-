@@ -37,21 +37,22 @@ const FridgeList = ({ onItemSelected }) => {
     setShowDeleteConfirm(false);
   };
 
-  const handleStatusChange = async (item) => {
-    const updatedItem = { ...item, status: !item.status };
-    await fetch(`http://localhost:5000/items/${item._id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(updatedItem),
-    });
-    setItems((prevItems) =>
-      prevItems.map((i) => (i._id === item._id ? updatedItem : i))
-    );
+  const handleStatusChange = async (itemId, currentStatus) => {
+    try {
+      await fetch(`http://localhost:5000/items/${itemId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ status: !currentStatus }),
+      });
+      // Optionally refetch data or update local state here
+    } catch (error) {
+      console.error("Failed to update item status:", error);
+    }
   };
 
   const handleSelectItem = (item) => {
     onItemSelected(item.category);  
-  };
+  };  
 
   const handleFormSubmit = (submittedItem) => {
     setItems((prevItems) => {
@@ -112,8 +113,8 @@ const FridgeList = ({ onItemSelected }) => {
               <td>
                 <input
                   type="checkbox"
-                  checked={item.status}
-                  onChange={() => handleStatusChange(item)}
+                  checked={item.status === true}
+                  onChange={() => handleStatusChange(item._id, item.status)}
                 />
               </td>
               <td>

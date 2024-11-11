@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import FridgeList from "./FridgeList";
 import Tips from "./Tips";
+import Savings from "./Savings";
 import './styles/FridgePage.css';
 
 const FridgePage = () => {
@@ -17,8 +18,9 @@ const FridgePage = () => {
           <FridgeList onItemSelected={handleItemSelected} />
         </div>
         <div className="side-info">
-          <div className="saved-info">
-            <h3>Saved</h3>
+          {/* <div className="saved-info"> */}
+          <Savings />
+            {/* <h3>Saved</h3>
             <p>Monthly wasted money: £3.20</p>
             <p>Items wasted: 2</p>
             <p>Soon-to-Expire: 4</p>
@@ -28,7 +30,7 @@ const FridgePage = () => {
             <p>Monthly wasted money: £3.40</p>
             <p>Items wasted: 2</p>
             <p>Soon-to-Expire: 4</p>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="tips-section">
