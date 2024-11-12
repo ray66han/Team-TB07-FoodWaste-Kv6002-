@@ -6,7 +6,6 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const FridgeItem = require("./models/FridgeItem");
 const cron = require("node-cron");
-const router = express.Router();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -150,6 +149,25 @@ app.put("/items/:id", async (req, res) => {
   const today = new Date();
   const inputDate = new Date(expiryDate);
 
+  const { status } = req.body;
+
+  try {
+    const updatedItem = await FridgeItem.findByIdAndUpdate(
+      id,
+      { status },
+      { new: true }
+    );
+
+    if (!updatedItem) {
+      return res.status(404).json({ error: "Item not found" });
+    }
+
+    res.json(updatedItem);
+  } catch (error) {
+    console.error("Error updating item:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+
   // Validate the inputs
   if (name && !/^[a-zA-Z\s]+$/.test(name)) {
     return res.status(400).json({ error: "Invalid name format" });
@@ -203,7 +221,7 @@ app.delete("/items/:id", async (req, res) => {
   }
 });
 
-router.get("/savings-stats", async (req, res) => {
+app.get("/savings-stats", async (req, res) => {
   try {
     // Calculate the start of the current month
     const startOfMonth = new Date();
@@ -223,15 +241,12 @@ router.get("/savings-stats", async (req, res) => {
       const expiryDate = new Date(item.expiryDate);
 
       if (item.status === true && expiryDate >= currentDate) {
-        // Item was used before it expired
-        savedMoney += item.price; // Assuming `price` holds the item's value
+        savedMoney += item.price;
       } else if (expiryDate < currentDate) {
-        // Item expired without being used
         wastedMoney += item.price;
         itemsWasted += 1;
       }
 
-      // Count items that are about to expire soon
       const daysUntilExpiry =
         (expiryDate - currentDate) / (1000 * 60 * 60 * 24);
       if (daysUntilExpiry >= 0 && daysUntilExpiry <= 3) {
@@ -245,8 +260,6 @@ router.get("/savings-stats", async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 });
-
-module.exports = router;
 
 // Scheduled task to clear items at the beginning of each month
 cron.schedule("0 0 1 * *", async () => {

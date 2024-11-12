@@ -9,11 +9,16 @@ const FridgeList = ({ onItemSelected }) => {
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [deleteItemId, setDeleteItemId] = useState(null);
 
-  useEffect(() => {
+  const fetchItems = () => {
     fetch("http://localhost:5000/items")
       .then((response) => response.json())
       .then((data) => setItems(data))
       .catch((error) => console.error("Error fetching items:", error));
+  };
+
+ 
+  useEffect(() => {
+    fetchItems();
   }, []);
 
   const handleAddButtonClick = () => {
@@ -37,18 +42,25 @@ const FridgeList = ({ onItemSelected }) => {
     setShowDeleteConfirm(false);
   };
 
-  const handleStatusChange = async (itemId, currentStatus) => {
-    try {
-      await fetch(`http://localhost:5000/items/${itemId}`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ status: !currentStatus }),
-      });
-      // Optionally refetch data or update local state here
-    } catch (error) {
-      console.error("Failed to update item status:", error);
+const handleStatusChange = async (itemId, currentStatus) => {
+  try {
+    const response = await fetch(`http://localhost:5000/items/${itemId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ status: !currentStatus }),
+    });
+
+    if (response.ok) {
+      // Refetch items to ensure status is updated
+      fetchItems();
+    } else {
+      console.error("Failed to update item status on the server");
     }
-  };
+  } catch (error) {
+    console.error("Failed to update item status:", error);
+  }
+};
+
 
   const handleSelectItem = (item) => {
     onItemSelected(item.category);  

@@ -9,13 +9,12 @@ const Savings = () => {
   });
 
   useEffect(() => {
-    // Fetch monthly savings and waste statistics from the backend
     const fetchStats = async () => {
       try {
         const response = await fetch("http://localhost:5000/savings-stats");
-        if (!response.ok) throw new Error("Network response was not ok");
+        if (!response.ok) throw new Error("Network response for Savings.jsx was not ok");
         const data = await response.json();
-        setStats(data); // Set stats to state for rendering
+        setStats(data);
       } catch (error) {
         console.error("Error fetching savings stats:", error);
       }
