@@ -144,39 +144,16 @@ app.get("/tips/:category", (req, res) => {
 // PUT route to update fridge items
 app.put("/items/:id", async (req, res) => {
   const { id } = req.params;
-  const { name, expiryDate, price, quantity, category } = req.body;
+  const { name, expiryDate, price, quantity, category, status } = req.body;
 
   const today = new Date();
   const inputDate = new Date(expiryDate);
-
-  const { status } = req.body;
-
-  try {
-    const updatedItem = await FridgeItem.findByIdAndUpdate(
-      id,
-      { status },
-      { new: true }
-    );
-
-    if (!updatedItem) {
-      return res.status(404).json({ error: "Item not found" });
-    }
-
-    res.json(updatedItem);
-  } catch (error) {
-    console.error("Error updating item:", error);
-    res.status(500).json({ error: "Internal server error" });
-  }
 
   // Validate the inputs
   if (name && !/^[a-zA-Z\s]+$/.test(name)) {
     return res.status(400).json({ error: "Invalid name format" });
   }
-  if (
-    expiryDate &&
-    isNaN(new Date(expiryDate).getTime()) &&
-    inputDate < today
-  ) {
+  if (expiryDate && (isNaN(inputDate.getTime()) || inputDate < today)) {
     return res.status(400).json({ error: "Invalid expiry date" });
   }
   if (price !== undefined && (isNaN(price) || price <= 0)) {
@@ -185,6 +162,16 @@ app.put("/items/:id", async (req, res) => {
   if (quantity !== undefined && (isNaN(quantity) || quantity <= 0)) {
     return res.status(400).json({ error: "Invalid quantity" });
   }
+  const validCategories = [
+    "Dairy",
+    "Meat",
+    "Vegetables",
+    "Fruits",
+    "Beverages",
+    "Leftovers",
+    "Baked Goods",
+    "Miscellaneous",
+  ];
   if (category && !validCategories.includes(category)) {
     return res.status(400).json({
       error: `Invalid category. Choose one of: ${validCategories.join(", ")}`,
@@ -192,11 +179,18 @@ app.put("/items/:id", async (req, res) => {
   }
 
   try {
-    const updatedItem = await FridgeItem.findByIdAndUpdate(
-      id,
-      { name, expiryDate, price, quantity, category },
-      { new: true }
-    );
+    // Build an update object dynamically
+    const updateFields = {};
+    if (name) updateFields.name = name;
+    if (expiryDate) updateFields.expiryDate = expiryDate;
+    if (price !== undefined) updateFields.price = price;
+    if (quantity !== undefined) updateFields.quantity = quantity;
+    if (category) updateFields.category = category;
+    if (status !== undefined) updateFields.status = status;
+
+    const updatedItem = await FridgeItem.findByIdAndUpdate(id, updateFields, {
+      new: true,
+    });
 
     if (!updatedItem) {
       return res.status(404).json({ error: "Item not found" });
@@ -228,6 +222,7 @@ app.get("/savings-stats", async (req, res) => {
     startOfMonth.setDate(1);
     startOfMonth.setHours(0, 0, 0, 0);
 
+    // Retrieve items added from the start of the month onwards
     const items = await FridgeItem.find({ createdAt: { $gte: startOfMonth } });
 
     let savedMoney = 0;
@@ -238,15 +233,21 @@ app.get("/savings-stats", async (req, res) => {
     const currentDate = new Date();
 
     items.forEach((item) => {
+      // Ensure expiryDate is treated as a Date object for accurate comparison
       const expiryDate = new Date(item.expiryDate);
 
+      // Calculate savedMoney: items that are marked as "used" (status: true) and have not expired
       if (item.status === true && expiryDate >= currentDate) {
         savedMoney += item.price;
-      } else if (expiryDate < currentDate) {
+      }
+
+      // Calculate wastedMoney: items that are marked as "not used" (status: false) and have expired
+      if (item.status === false && expiryDate < currentDate) {
         wastedMoney += item.price;
         itemsWasted += 1;
       }
 
+      // Calculate soonToExpire: items with 0 to 3 days left before expiry
       const daysUntilExpiry =
         (expiryDate - currentDate) / (1000 * 60 * 60 * 24);
       if (daysUntilExpiry >= 0 && daysUntilExpiry <= 3) {

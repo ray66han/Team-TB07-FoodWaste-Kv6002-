@@ -6,20 +6,25 @@ import './styles/FridgePage.css';
 
 const FridgePage = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [refresh, setRefresh] = useState(false);
 
   const handleItemSelected = (category) => {
     setSelectedCategory(category);
+  };
+
+  const toggleRefresh = () => {
+    setRefresh((prevRefresh) => !prevRefresh);
   };
 
   return (
     <div className="fridge-page">
       <div className="fridge-content">
         <div className="fridge-table">
-          <FridgeList onItemSelected={handleItemSelected} />
+          <FridgeList onItemSelected={handleItemSelected} onStatusChange={toggleRefresh}/>
         </div>
         <div className="side-info">
           {/* <div className="saved-info"> */}
-          <Savings />
+          <Savings refresh={refresh}/>
             {/* <h3>Saved</h3>
             <p>Monthly wasted money: £3.20</p>
             <p>Items wasted: 2</p>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import FridgeForm from "./FridgeForm";
 import "./styles/FridgeList.css";
 
-const FridgeList = ({ onItemSelected }) => {
+const FridgeList = ({ onItemSelected , onStatusChange}) => {
   const [items, setItems] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [editItem, setEditItem] = useState(null);
@@ -11,8 +11,14 @@ const FridgeList = ({ onItemSelected }) => {
 
   const fetchItems = () => {
     fetch("http://localhost:5000/items")
-      .then((response) => response.json())
-      .then((data) => setItems(data))
+      .then((response) => {
+        console.log("Items fetch response:", response);
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Fetched items data:", data);
+        setItems(data);
+      })
       .catch((error) => console.error("Error fetching items:", error));
   };
 
@@ -51,8 +57,8 @@ const handleStatusChange = async (itemId, currentStatus) => {
     });
 
     if (response.ok) {
-      // Refetch items to ensure status is updated
       fetchItems();
+      onStatusChange();
     } else {
       console.error("Failed to update item status on the server");
     }
