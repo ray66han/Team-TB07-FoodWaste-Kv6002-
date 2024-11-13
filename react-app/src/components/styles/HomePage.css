@@ -1,9 +1,9 @@
 /* ____________________Banner Styles - Starts Here____________________ */
 .banner {
-    background-image: url('https://via.placeholder.com/1500x600');
+    background-image: url('/src/assets/images/Navbar/banner-food-image.jpg');
     background-size: cover;
     background-position: center;
-    height: 50vh; /* 40% of the viewport height */
+    height: 50vh; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,13 +22,33 @@
   .banner h1 {
     font-size: 36px;
     margin-bottom: 15px;
-    color: #F87A53; /* Heading color */
+    color: #F87A53; /* Heading One color */
   }
   
-  .banner p {
-    font-size: 18px;
-    margin-bottom: 10px;
-    color: white; /* Paragraph color */
+  .banner-section {
+    background-color: #2e8b57;  /* Banner - Soft green background */
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+  }
+  
+  .banner-text {
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  .banner-text:hover {
+    color: #d1f7e6;  /* Text Hover - Slight lightening effect on hover */
+    cursor: pointer;
+    transition: color 0.3s ease;
   }
   
   .banner-btn {
@@ -43,17 +63,16 @@
   }
   
   .banner-btn:hover {
-    background-color: #c96f49; /* Darker button color on hover */
+    background-color: #c96f49; /* Button Hover - Darker button color on hover */
   }
 
   /* ____________________About Us Section Styles - Starts Here____________________ */
-/* About Us Section Styles */
 .about-us-section {
-    margin-top: 50px; /* Adds spacing at the top of the About Us section */
-    background-color: white; /* White background for About Us */
+    margin-top: 50px; 
+    background-color: white; 
     border: 2px solid #94BF73; /* Border color set to #94BF73 */
     border-radius: 10px; /* Rounded corners */
-    padding: 40px; /* Adds padding inside the container */
+    padding: 40px; 
   }
   
   .about-us-content {
@@ -63,19 +82,19 @@
   }
   
   .about-us-text {
-    flex: 1; /* Allows the text to take up available space */
-    padding-right: 20px; /* Adds space between text and image */
-    text-align: center; /* Centers the content within the text section */
+    flex: 1; 
+    padding-right: 20px; 
+    text-align: center; 
   }
   
   .about-us-text h2 {
     font-size: 30px;
     margin-bottom: 15px;
     position: relative;
-    display: inline-block; /* Ensures the underline only spans the text */
+    display: inline-block; 
   }
   
-  /* Responsive underline style for the heading */
+  /* About Us - Responsive underline style for the heading */
   .about-us-text h2::after {
     content: '';
     position: absolute;
@@ -87,22 +106,63 @@
   }
   
   /* Styling for the paragraph */
-  .about-us-text p {
-    font-size: 18px;
+  .about-us-text-introduction {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #444;
+    margin-bottom: 1.2rem;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .about-us-text-mission {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #2d3e50;
+    background-color: #eaf7f3;
+    padding: 1rem;
+    border-left: 5px solid #2e8b57;
+    margin-bottom: 1.2rem;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .about-us-text-tools {
+    font-size: 1.1rem;
     line-height: 1.6;
+    color: #333;
+    margin-bottom: 1.2rem;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .about-us-text-invite {
+    font-size: 1.3rem;
+    color: #2e8b57;
+    font-weight: bold;
+    text-align: center;
+    padding: 1rem;
+    background-color: #f0f9f4;
+    border-radius: 8px;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .about-us-image {
-    flex: 1; /* Ensures the image takes up the remaining space */
-    max-width: 50%; /* Image will occupy 50% of the About Us container */
-    overflow: hidden; /* Ensures the image stays within the border */
-    border-radius: 10px; /* Optional: Adds rounded corners to the image */
+    flex: 1; 
+    max-width: 50%; 
+    overflow: hidden; 
+    border-radius: 10px; 
   }
   
   .about-us-image img {
-    width: 100%; /* Ensures the image takes up the full width of its container */
-    height: 100%; /* Ensures the image height matches the container */
-    object-fit: cover; /* Makes the image cover the entire space of its container */
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
   }
 
 
@@ -112,7 +172,7 @@
     justify-content: space-between;
     align-items: center;
     margin: 50px 0;
-    height: 60vh; /* 40% of the viewport height */
+    height: 60vh; 
   }
   
   .impact-text {
@@ -127,7 +187,7 @@
     display: inline-block;
   }
   
-  /* Underline effect for the heading */
+  /* ImpactOfFoodWaste - Underline effect for the heading */
   .impact-text h2::after {
     content: '';
     position: absolute;
@@ -142,6 +202,33 @@
     font-size: 18px;
     line-height: 1.6;
   }
+
+  /* paragraph style */
+  .food-waste-impact-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    max-width: 700px;
+    margin: auto;
+  }
+  
+  .food-waste-impact-text a {
+    color: #2e8b57;
+    text-decoration: none;
+  }
+  
+  .food-waste-impact-text a:hover {
+    text-decoration: underline;
+  }
+  
+  .highlight-water-energy {
+    background-color: yellow;
+    font-weight: bold;
+  }
+  
+  strong {
+    color: #2f4f4f;
+  }
   
   /* Image Section Styles */
   .impact-image-section {
@@ -154,8 +241,8 @@
   
   .impact-image {
     position: relative;
-    width: 150px; /* Fixed width for each image */
-    height: 500px; /* Fixed height for each image */
+    width: 150px; 
+    height: 500px; 
     overflow: hidden;
     border-radius: 10px;
     cursor: pointer;
@@ -167,18 +254,18 @@
   }
   
   .impact-image img {
-    width: 100%; /* Fit to width of the container */
-    height: 80%; /* Fit to height of the container */
+    width: 100%; 
+    height: 80%; 
     object-fit: cover; /* Ensure the image covers the container without distortion */
     transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
   }
   
   /* Hover effect on image */
   .impact-image:hover {
-    transform: scale(1.2); /* Zoom effect */
-    width: 100%; /* Expand the image */
-    z-index: 10; /* Bring the hovered image to the front */
-    margin: 0; /* Remove margin when expanding */
+    transform: scale(1.2); 
+    width: 100%; 
+    z-index: 10; 
+    margin: 0; 
   }
   
   /* Overlay message on image */
@@ -201,23 +288,20 @@
   
   /* Make the image full-screen when clicked */
   .impact-image:active img {
-    transform: scale(1.5); /* Expands image on click */
+    transform: scale(1.5); 
   }
 
 
 /*  ____________________Educational Video Section Styles - Starts Here ____________________ */
+/* General styling for the Educational Videos section */
 .educational-video-section {
-    height: 60vh; /* 60% of the viewport height */
-    padding: 30px 0;
-    text-align: center;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    padding: 30px 0;
+    text-align: center;
 }
 
-/* Styling for the section header */
 .section-header {
     margin-bottom: 20px;
 }
@@ -225,7 +309,6 @@
 .section-header h2 {
     font-size: 30px;
     position: relative;
-    display: inline-block;
     padding-bottom: 5px;
 }
 
@@ -240,56 +323,53 @@
     background-color: #94BF73;
 }
 
-/* Carousel Styling */
-.carousel {
-    position: relative;
-    width: 80vw; /* Set width of carousel to 80% of the viewport width */
-    height: 600px; /* Fixed height for video */
+/* Carousel container styling */
+.carousel-container {
     display: flex;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    justify-content: flex-start;
     align-items: center;
+    width: 80vw;
+    position: relative;
 }
 
-.carousel-inner {
+/* Carousel styling */
+.carousel {
     display: flex;
-}
-
-.carousel-item {
-    flex-shrink: 0; /* Prevents the video from shrinking */
-    width: 80vw; /* Width of the video */
-    height: 100%; /* Full height */
-    margin-right: 10px; /* Space between the videos */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    width: 100%;
 }
 
 .carousel-video {
-    width: 100%; /* Full width of the container */
-    height: 100%; /* Full height of the container */
+    min-width: 80%;
+    height: 600px;
+    margin-right: 10px;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Shadow effect for videos */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Carousel Controls */
+/* Carousel control buttons */
 .carousel-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     border: none;
-    padding: 10px;
+    padding: 10px 20px;
     font-size: 18px;
     cursor: pointer;
+    position: relative;
     z-index: 1;
 }
 
-.carousel-control.prev {
-    left: 10px;
+.prev {
+    margin-right: 10px;
 }
 
-.carousel-control.next {
-    right: 10px;
+.next {
+    margin-left: 10px;
+}
+
+/* Center control buttons vertically */
+.carousel-container .carousel-control {
+    align-self: center;
 }
 
 /* Optional: Hover effect on control buttons */
@@ -297,14 +377,317 @@
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-/* Optional: Make iframe width responsive on smaller screens */
+/* Make iframe responsive for smaller screens */
 @media (max-width: 768px) {
-    .carousel {
-        width: 90vw; /* Adjust carousel width on smaller screens */
-    }
-
     .carousel-video {
-        width: 90%; /* Adjust iframe width on smaller screens */
-        height: 400px; /* Adjust height for smaller screens */
+        height: 300px; /* Adjust height for smaller screens */
     }
+}
+
+/*  ____________________Join the Movement Section Styles - Starts Here ____________________ */
+
+.join-movement-section {
+  height: 60vh; /* 60% of the viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white; /* White background */
+  padding: 20px;
+}
+
+.join-movement-content {
+  display: flex;
+  width: 100%;
+  max-width: 1200px; /* Max width of the section */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.join-movement-image img {
+  width: 100%;
+  height: 50vh; /* 50% of the screen height */
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.join-movement-text {
+  flex: 1; /* Takes up the remaining space */
+  padding-left: 30px;
+}
+
+.join-movement-text h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 5px;
+  display: inline-block; /* Make the title inline to limit the underline to the text */
+}
+
+/* Underline effect for the header */
+.join-movement-text h2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #94BF73; /* Underline color */
+}
+
+.join-movement-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.join-movement-btn {
+  padding: 12px 30px;
+  background-color: #94BF73; /* Button background color */
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.join-movement-btn:hover {
+  background-color: #7e9e58; /* Darker shade on hover */
+}
+
+/* Optional: Make the layout responsive for smaller screens */
+@media (max-width: 768px) {
+  .join-movement-content {
+      flex-direction: column;
+      text-align: center;
+  }
+
+  .join-movement-text {
+      padding-left: 0;
+      padding-top: 20px;
+  }
+
+  .join-movement-image img {
+      height: 40vh; /* Adjust image height on smaller screens */
+  }
+}
+
+/* ____________________Recycle Bins Section Styles - Starts Here ____________________ */
+.recycle-bins-section {
+  background-color: white; /* White background */
+  padding: 40px 20px; /* Padding on top and bottom, decent padding on the left and right */
+  text-align: center;
+  margin: 0 auto; /* Center the section */
+  height: 80vh; /* Set the height to 70% of the viewport height */
+}
+
+/* Header styles with underline */
+.section-header h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block; /* For the underline effect */
+  padding-bottom: 5px;
+}
+
+/* Underline effect for the header */
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #94BF73; /* Underline color */
+}
+
+/* Styling for the cards container */
+.recycle-bins-cards {
+  display: flex;
+  justify-content: space-between; /* Distribute cards with space between */
+  gap: 10px; /* Reduced gap between the cards */
+  flex-wrap: wrap; /* Allow the cards to wrap to new rows if needed */
+  margin-top: 30px;
+  max-width: 1200px; /* Limit max width of the cards container */
+  margin: 0 auto; /* Center the container */
+}
+
+/* Individual Card Styling */
+.recycle-bin-card {
+  background-color: #94BF73; /* Card background color */
+  color: white; /* Text color */
+  width: 31%; /* Adjust width to 31% of the container for a tighter fit */
+  padding: 10px; /* Internal padding for the cards */
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column; /* Stack the content vertically */
+  margin-bottom: 20px; /* Add some space at the bottom for each card */
+}
+
+/* Hover effect for the cards */
+.recycle-bin-card:hover {
+  transform: translateY(-8px); /* Slight lift effect */
+}
+
+/* Image Styling inside the card */
+.recycle-bin-card img {
+  width: 100%;
+  height: 300px; /* Set height of image to 300px */
+  object-fit: cover; /* Ensure image covers the area without distorting */
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+/* Title and description text inside the card */
+.recycle-bin-card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.recycle-bin-card p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Optional: Make the layout responsive for smaller screens */
+@media (max-width: 1024px) {
+  .recycle-bins-cards {
+      justify-content: center; /* Center cards on medium screens */
+  }
+
+  .recycle-bin-card {
+      width: 45%; /* Adjust width on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .recycle-bins-cards {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .recycle-bin-card {
+      width: 80%; /* Adjust width on smaller screens */
+  }
+}
+
+/* ____________________References to Reduce Food Waste Section Styles - Starts Here ____________________ */
+/* ____________________References to Reduce Food Waste Section Styles - Starts Here ____________________ */
+.references-section {
+  background-color: white; /* White background */
+  padding: 40px 20px; /* Padding on top and bottom, decent padding on the left and right */
+  text-align: center;
+  margin: 0 auto; /* Center the section */
+}
+
+.section-header {
+  margin-bottom: 20px; /* Reduced space below the title */
+}
+
+.section-header h2 {
+  font-size: 30px;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+/* Underline effect for the header */
+.section-header h2::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #94BF73;
+}
+
+/* Styling for each content block */
+.references-content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px; /* Reduced space between sections */
+  align-items: center;
+}
+
+/* Text content styling */
+.references-text {
+  width: 100%; /* Take full width for the first section */
+  text-align: left;
+  margin-bottom: 20px; /* Reduced bottom margin */
+}
+
+/* For headers inside text */
+.references-text h3 {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+/* For paragraph text */
+.references-text p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Link styling */
+.references-text ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.references-text ul li {
+  margin: 10px 0;
+}
+
+.references-text ul li a {
+  color: #94BF73;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.references-text ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Image styling */
+.references-image {
+  width: 48%; /* Make space for the text */
+}
+
+.references-image img {
+  width: 100%;
+  height: auto;
+  max-width: 500px; /* Ensure the image doesn't exceed 500px */
+  border-radius: 8px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .references-content {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .references-text,
+  .references-image {
+      width: 100%;
+  }
+
+  .references-image img {
+      max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-header h2 {
+      font-size: 26px; /* Smaller title on mobile */
+  }
+
+  .references-text p {
+      font-size: 14px;
+  }
 }
