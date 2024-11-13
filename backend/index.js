@@ -216,6 +216,7 @@ app.delete("/items/:id", async (req, res) => {
 });
 
 app.get("/savings-stats", async (req, res) => {
+  console.log("Got innnnnnnnnnnnnnnnn", req);
   try {
     // Calculate the start of the current month
     const startOfMonth = new Date();
@@ -240,12 +241,14 @@ app.get("/savings-stats", async (req, res) => {
       if (item.status === true && expiryDate >= currentDate) {
         savedMoney += item.price;
       }
+      console.log("Saved Money:", savedMoney);
 
       // Calculate wastedMoney: items that are marked as "not used" (status: false) and have expired
       if (item.status === false && expiryDate < currentDate) {
         wastedMoney += item.price;
         itemsWasted += 1;
       }
+      console.log("Wasted Money:", wastedMoney);
 
       // Calculate soonToExpire: items with 0 to 3 days left before expiry
       const daysUntilExpiry =
@@ -257,6 +260,7 @@ app.get("/savings-stats", async (req, res) => {
 
     res.json({ savedMoney, wastedMoney, itemsWasted, soonToExpire });
   } catch (error) {
+    console.log("Error calculating savings stats:", error);
     console.error("Error calculating savings stats:", error);
     res.status(500).json({ error: "Internal server error" });
   }

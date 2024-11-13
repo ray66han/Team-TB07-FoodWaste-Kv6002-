@@ -12,11 +12,11 @@ const FridgeList = ({ onItemSelected , onStatusChange}) => {
   const fetchItems = () => {
     fetch("http://localhost:5000/items")
       .then((response) => {
-        console.log("Items fetch response:", response);
+        // console.log("Items fetch response:", response);
         return response.json();
       })
       .then((data) => {
-        console.log("Fetched items data:", data);
+        // console.log("Fetched items data:", data);
         setItems(data);
       })
       .catch((error) => console.error("Error fetching items:", error));

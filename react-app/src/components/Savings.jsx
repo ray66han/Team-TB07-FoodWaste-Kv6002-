@@ -9,13 +9,13 @@ const Savings = ({ refresh }) => {
   });
 
   useEffect(() => {
-    console.log("Fetching savings stats due to refresh change:", refresh);
+    // console.log("Fetching savings stats due to refresh change:", refresh);
     const fetchStats = async () => {
       try {
         const response = await fetch("http://localhost:5000/savings-stats");
         if (!response.ok) throw new Error("Network response for Savings.jsx was not ok");
         const data = await response.json();
-        console.log("Fetched savings stats:", data);
+        // console.log("Fetched savings stats:", data);
         if (data && typeof data.savedMoney === 'number' && typeof data.wastedMoney === 'number') {
           setStats(data);
         } else {
