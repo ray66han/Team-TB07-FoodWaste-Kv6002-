@@ -237,7 +237,7 @@ return (
                 </div>
                 
             </div>
-        </div>
+            </div>
 
         {/* --------------------------------------------Join the Movement Section Start Here-------------------------------------------- */}
         <div className="container">
@@ -255,39 +255,47 @@ return (
                     <div className="join-movement-text">
                         <h2>Join the Movement</h2>
                         <p>
-                            By using ExpiryAlert, you become part of a global effort to reduce food waste and its harmful impact on the environment. Every small action, from tracking expiry dates to minimizing waste, contributes to a more sustainable future for all. Together, we can make a difference—one meal at a time.
+                            By using ExpiryAlert, you become part of a global effort to reduce food waste and its harmful impact on the environment. 
+                            <span className="highlight">Every small action</span>, from tracking expiry dates to minimizing waste, contributes to a  
+                            <span className="highlight"> more sustainable future</span> for all. Together, we can make a difference—
+                            <span className="highlight">one meal at a time.</span>
                         </p>
-                        <p>
-                            Sign in or sign up to use “Your Fridge” and keep track of your food items to reduce waste effectively.
-                        </p>
-                        <button className="join-movement-btn">Your Fridge</button>
-                    </div>
+                        <button className="join-movement-btn"><b>Your Fridge</b></button>
+                    </div>  
                 </div>
             </div>
         </div>
 
-        {/* --------------------------------------------Recycle Bins Section Start Here-------------------------------------------- */}        
-        <div className="recycle-bins-section">
-            <div className="section-header">
-                <h2>Effective Waste Management: Sorting for Sustainability</h2>
-            </div>
-            <p>Using separate bins for waste, recycling, and composting is essential for promoting sustainability and reducing environmental impact. Each bin serves a specific purpose, helping to keep waste organized and ensuring that materials are disposed of in the most eco-friendly way possible. The General Waste Bin is for items that can’t be reused, recycled, or composted. The Recycle Bin ensures that recyclable materials like plastics and glass are processed properly, and the Compost Bin turns organic waste into valuable resources for gardens. By following this system, we can all contribute to a more sustainable future and reduce unnecessary waste.</p>
+        {/* --------------------------------------------Recycle Bins Section Start Here-------------------------------------------- */}
+        <div className="container">        
+            <div className="recycle-bins-section">
+                <div className="section-header">
+                    <h2>Effective Waste Management: Sorting for Sustainability</h2>
+                </div>
+                <div className="recycle-bins-section-paragraph">
+                    <p>
+                        Using separate bins for waste, recycling, and composting is essential for promoting sustainability and reducing environmental impact. Each bin serves a specific purpose, helping to keep waste organized and ensuring that materials are disposed of in the most eco-friendly way possible. The <span className="general-waste">General Waste Bin</span> is for items that can’t be reused, recycled, or composted. The <span className="recycle-bin">Recycle Bin</span> ensures that recyclable materials like plastics and glass are processed properly, and the <span className="compost-bin">Compost Bin</span> turns organic waste into valuable resources for gardens. By following this system, we can all contribute to a more sustainable future and reduce unnecessary waste.
+                    </p>
+                </div>
 
-            <div className="recycle-bins-cards">
-                <div className="recycle-bin-card">
-                    <h3>General Waste Bin (Black or Grey)</h3>
-                    <img src="/src/assets/images/Bins/Black.jpg" alt="General Bin" />
-                    <p>This bin is for food items that are no longer edible or cannot be recycled or composted, such as moldy produce or packaging with mixed materials. It’s where non-reusable waste should go to ensure proper disposal.</p>
-                </div>
-                <div className="recycle-bin-card">
-                    <h3>Recycle Bin (Blue)</h3>
-                    <img src="/src/assets/images/Bins/Blue.jpg" alt="Recycle Bin" />
-                    <p>Use this bin for food packaging that can be recycled, like cardboard, plastic containers, and glass bottles. Be sure items are clean and dry to avoid contamination in the recycling stream.</p>
-                </div>
-                <div className="recycle-bin-card">
-                    <h3>Compost Bin (Green or Brown)</h3>
-                    <img src="/src/assets/images/Bins/Green.jpg" alt="Other Bin" />
-                    <p>This bin is for organic food waste such as fruit and vegetable scraps, coffee grounds, and eggshells. Composting turns this waste into nutrient-rich soil, reducing landfill waste and creating natural fertilizer.</p>
+                <div className="recycle-bins-cards">
+                    <div className="recycle-bin-card general-waste-card">
+                        <h3>General Waste Bin</h3>
+                        <img src="/src/assets/images/Bins/Black.jpg" alt="General Bin" />
+                        <p><b>Place non-reusable waste here, like moldy produce or mixed-material packaging that can't be recycled or composted.</b></p>
+                    </div>
+
+                    <div className="recycle-bin-card recycle-bin">
+                        <h3>Recycle Bin</h3>
+                        <img src="/src/assets/images/Bins/Blue.jpg" alt="Recycle Bin" />
+                        <p><b>Use for recyclable items such as clean plastic containers, cardboard, and glass bottles.</b></p>
+                    </div>
+
+                    <div className="recycle-bin-card compost-bin">
+                        <h3>Compost Bin</h3>
+                        <img src="/src/assets/images/Bins/Green.jpg" alt="Compost Bin" />
+                        <p><b>For organic waste like fruit scraps, coffee grounds, and eggshells. Composting turns waste into nutrient-rich soil.</b></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -299,52 +307,40 @@ return (
                     <h2>Useful Resources on Reducing Food Waste</h2>
                 </div>
 
-                {/* Section 1: Title and Text */}
-                <div className="references-content">
+                {/* Section 1: Title and Intro Text */}
+                <div className="references-content intro-section">
                     <div className="references-text">
                         <p>
-                            Food waste is a global issue, and there are many ways to reduce it. We encourage you to explore various methods to
-                            minimize waste in your daily life. Stay informed and learn more about how you can contribute to reducing food waste with these helpful resources:
+                        Food waste is a global issue, and there are many ways to reduce it. We encourage you to explore various methods 
+                        to minimize waste in your daily life. Stay informed and learn more about how you can contribute to reducing 
+                        food waste with these helpful resources.
                         </p>
                     </div>
                 </div>
 
-                {/* Section 2: 50% Text and 50% Image */}
-                <div className="references-content">
+                {/* Section 2: Resources with 50% Image and 50% Text */}
+                <div className="references-content resources-section">
                     <div className="references-text">
                         <h3>Websites for Practical Tips:</h3>
                         <p>
-                            Simple changes in your daily routine can have a big impact. By planning meals, using leftovers creatively, and 
-                            understanding food labels, we can significantly reduce the amount of food we throw away. Learn more about how to make
-                            these changes by visiting the resources below.
-                            <ul>
-                                <li><a href="https://www.mayoclinichealthsystem.org/hometown-health/speaking-of-health/7-ways-to-reduce-food-waste-in-your-kitchen" target="_blank" rel="noopener noreferrer">7 Ways to Reduce Food Waste in Your Kitchen - Mayo Clinic</a></li>
-                                <li><a href="https://fareshare.org.uk/tips-for-reducing-food-waste/" target="_blank" rel="noopener noreferrer">Tips for Reducing Food Waste - FareShare</a></li>
-                                <li><a href="https://www.triodos.co.uk/articles/2022/10-tips-for-reducing-food-waste" target="_blank" rel="noopener noreferrer">10 Tips for Reducing Food Waste - Triodos Bank</a></li>
-                                <li><a href="https://www.bhf.org.uk/informationsupport/heart-matters-magazine/news/10-ways-to-cut-your-food-waste" target="_blank" rel="noopener noreferrer">10 Ways to Cut Your Food Waste - British Heart Foundation</a></li>
-                                <li><a href="https://www.wastemanaged.co.uk/our-news/food-waste/food-waste-facts-statistics/#:~:text=The%20UK%20wastes%20approximately%209.5,distribution%2C%20retail%2C%20and%20households" target="_blank" rel="noopener noreferrer">Food Waste Facts and Statistics - Waste Managed</a></li>
-                            </ul>
+                        Simple changes in your daily routine can have a big impact. By planning meals, using leftovers creatively, 
+                        and understanding food labels, we can significantly reduce food waste. Visit the resources below to learn more:
                         </p>
+                        <ul>
+                        <li><a href="https://www.mayoclinichealthsystem.org/hometown-health/speaking-of-health/7-ways-to-reduce-food-waste-in-your-kitchen" target="_blank" rel="noopener noreferrer">7 Ways to Reduce Food Waste in Your Kitchen - Mayo Clinic</a></li>
+                        <li><a href="https://fareshare.org.uk/tips-for-reducing-food-waste/" target="_blank" rel="noopener noreferrer">Tips for Reducing Food Waste - FareShare</a></li>
+                        <li><a href="https://www.triodos.co.uk/articles/2022/10-tips-for-reducing-food-waste" target="_blank" rel="noopener noreferrer">10 Tips for Reducing Food Waste - Triodos Bank</a></li>
+                        </ul>
+                        
+                        <h3>Additional Reading on the Impact:</h3>
+                        <ul>
+                        <li><a href="https://www.worldwildlife.org/stories/fight-climate-change-by-preventing-food-waste" target="_blank" rel="noopener noreferrer">Fight Climate Change by Preventing Food Waste - WWF</a></li>
+                        <li><a href="https://www.europarl.europa.eu/topics/en/article/20230316STO77629/climate-change-the-greenhouse-gases-causing-global-warming" target="_blank" rel="noopener noreferrer">The Greenhouse Gases Causing Global Warming - European Parliament</a></li>
+                        <li><a href="https://www.un.org/en/climatechange/science/climate-issues/food" target="_blank" rel="noopener noreferrer">Food's Impact on Climate Change - United Nations</a></li>
+                        </ul>
                     </div>
                     <div className="references-image">
                         <img src="/src/assets/images/Resources/Image01.jpeg" alt="Food Waste Awareness" />
-                    </div>
-                </div>
-
-                {/* Section 3: More References and Links */}
-                <div className="references-content">
-                    <div className="references-text">
-                        <h3>Additional Reading on the Impact:</h3>
-                        <ul>
-                            <li><a href="https://www.google.com/amp/s/www.devon.gov.uk/news/reducing-food-waste-can-save-you-money/%3famp=1" target="_blank" rel="noopener noreferrer">Reducing Food Waste Can Save You Money - Devon County Council</a></li>
-                            <li><a href="https://www.worldwildlife.org/stories/fight-climate-change-by-preventing-food-waste#:~:text=When%20we%20waste%20food%2C%20we,more%20potent%20than%20carbon%20dioxide" target="_blank" rel="noopener noreferrer">Fighting Climate Change by Preventing Food Waste - World Wildlife Fund</a></li>
-                            <li><a href="https://www.europarl.europa.eu/topics/en/article/20230316STO77629/climate-change-the-greenhouse-gases-causing-global-warming#:~:text=Greenhouse%20gases%20act%20similarly%20to,be%2C%20supporting%20life%20on%20Earth" target="_blank" rel="noopener noreferrer">The Greenhouse Gases Causing Global Warming - European Parliament</a></li>
-                            <li><a href="https://www.usda.gov/media/blog/2022/01/24/food-waste-and-its-links-greenhouse-gases-and-climate-change#:~:text=Food%20loss%20and%20waste%20also,even%20more%20potent%20greenhouse%20gas" target="_blank" rel="noopener noreferrer">Food Waste and its Links to Greenhouse Gases - USDA</a></li>
-                            <li><a href="https://www.un.org/en/climatechange/science/climate-issues/food#:~:text=Food%20needs%20to%20be%20grown,emissions%20is%20linked%20to%20food" target="_blank" rel="noopener noreferrer">Food's Impact on Climate Change - United Nations</a></li>
-                            <li><a href="https://www.epa.gov/recycle" target="_blank" rel="noopener noreferrer">EPA - Reducing Food Waste</a></li>
-                            <li><a href="https://www.reducereuserecycle.org/food-waste/" target="_blank" rel="noopener noreferrer">Reduce Reuse Recycle - Food Waste</a></li>
-                            <li><a href="https://www.wfp.org/stories/how-reduce-food-waste" target="_blank" rel="noopener noreferrer">WFP - How to Reduce Food Waste</a></li>
-                        </ul>
                     </div>
                 </div>
             </div>

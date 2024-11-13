@@ -28,29 +28,14 @@
     background-color: #94BF73;
 }
 
-/* Carousel container styling */
-.carousel-container {
-    display: flex;
-    align-items: center;
-    width: 100%; /* Ensure it stretches the entire width */
-    position: relative;
-    overflow: hidden; /* Ensures no extra space is visible outside */
-}
 
-/* Carousel styling */
-.carousel {
-    display: flex;
-    overflow-x: auto;
-    width: 100%;
-    scroll-behavior: smooth;
-    flex-shrink: 0;
-}
+
 
 /* Carousel photo styling */
 .carousel-photo {
     position: relative;
     flex-shrink: 0;
-    min-width: 300px;  /* Minimum width for each photo */
+    min-width: 60%;  /* Minimum width for each photo */
     height: 600px; /* Fixed height */
     margin-right: 10px;
     border-radius: 10px;
@@ -63,11 +48,12 @@
 
 /* Ensure the image fits the container without distortion (cover) */
 .carousel-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;  /* Ensures the image covers the container */
-    object-position: center; /* Centers the image */
-    border-radius: 10px;
+    max-width: 100%;       /* Ensures the image does not overflow horizontally */
+    max-height: 100%;      /* Ensures the image does not overflow vertically */
+    object-fit: cover;     /* Keeps the image's aspect ratio while filling the container */
+    width: auto;           /* Adjusts width dynamically based on height */
+    height: auto;          /* Adjusts height dynamically based on width */
+    border-radius: 10px;   /* Adds rounded corners */
 }
 
 /* Caption styling */
@@ -83,49 +69,4 @@
     font-size: 18px;
     text-align: center;
     font-weight: bold;
-}
-
-/* Carousel control buttons */
-.carousel-control {
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    border: none;
-    padding: 15px;
-    font-size: 24px;
-    cursor: pointer;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 1;
-    transition: background-color 0.3s ease;
-}
-
-.prev {
-    left: -25px;
-}
-
-.next {
-    right: -25px;
-}
-
-/* Hover effect on control buttons */
-.carousel-control:hover {
-    background-color: #94BF73;
-}
-
-/* Responsive styling */
-@media (max-width: 768px) {
-    .carousel-photo {
-        height: 300px;  /* Adjust height for smaller screens */
-    }
-    .photo-caption {
-        font-size: 16px;
-        padding: 8px;
-    }
 }

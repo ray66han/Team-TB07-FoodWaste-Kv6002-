@@ -1,6 +1,6 @@
 /* ____________________Banner Styles - Starts Here____________________ */
 .banner {
-    background-image: url('/src/assets/images/Navbar/banner-food-image.jpg');
+    background-image: url('/src/assets/images/Banner/banner-food-image.jpg');
     background-size: cover;
     background-position: center;
     height: 50vh; 
@@ -332,11 +332,9 @@
 .carousel-container {
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 80%;  /* Use percentage for better responsiveness */
+  width: 100%; /* Ensure it stretches the entire width */
   position: relative;
-  overflow: hidden;  /* Hide overflow content */
-  margin-bottom: 30px;  /* Add spacing below the carousel */
+  overflow: hidden; /* Ensures no extra space is visible outside */
 }
 
 /* Carousel styling */
@@ -374,11 +372,11 @@
 }
 
 .prev {
-  left: -25px;
+  left: 25px;
 }
 
 .next {
-  right: -25px;
+  right: 25px;
 }
 
 /* Hover effect on control buttons */
@@ -462,9 +460,20 @@
   border-radius: 8px;
 }
 
+/* General Styling */
 .join-movement-text {
-  flex: 1; /* Takes up the remaining space */
-  padding-left: 30px;
+  text-align: center;
+  padding: 20px;
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.join-movement-text:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .join-movement-text h2 {
@@ -486,26 +495,40 @@
   background-color: #94BF73; /* Underline color */
 }
 
+/* Paragraph and Highlight Styling */
 .join-movement-text p {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   color: #333;
   margin-bottom: 20px;
 }
-
-.join-movement-btn {
-  padding: 12px 30px;
-  background-color: #94BF73; /* Button background color */
-  color: white;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+.highlight {
+  color: #2b8a3e;
+  font-weight: bold;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+.highlight:hover {
+  color: #94BF73;
+  transform: scale(1.1);
 }
 
+/* Button Styling */
+.join-movement-btn {
+  background-color: #2b8a3e;
+  color: #fff;
+  border: none;
+  padding: 15px 30px;
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
 .join-movement-btn:hover {
-  background-color: #7e9e58; /* Darker shade on hover */
+  background-color: #94BF73;
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.25);
 }
 
 /* Optional: Make the layout responsive for smaller screens */
@@ -531,7 +554,7 @@
   padding: 40px 20px; /* Padding on top and bottom, decent padding on the left and right */
   text-align: center;
   margin: 0 auto; /* Center the section */
-  height: 80vh; /* Set the height to 70% of the viewport height */
+  height: 90vh; /* Set the height to 70% of the viewport height */
 }
 
 /* Header styles with underline */
@@ -554,81 +577,125 @@
   background-color: #94BF73; /* Underline color */
 }
 
-/* Styling for the cards container */
-.recycle-bins-cards {
-  display: flex;
-  justify-content: space-between; /* Distribute cards with space between */
-  gap: 10px; /* Reduced gap between the cards */
-  flex-wrap: wrap; /* Allow the cards to wrap to new rows if needed */
-  margin-top: 30px;
-  max-width: 1200px; /* Limit max width of the cards container */
-  margin: 0 auto; /* Center the container */
-}
-
-/* Individual Card Styling */
-.recycle-bin-card {
-  background-color: #94BF73; /* Card background color */
-  color: white; /* Text color */
-  width: 31%; /* Adjust width to 31% of the container for a tighter fit */
-  padding: 10px; /* Internal padding for the cards */
+/* Recycle Bins Section Styling */
+.recycle-bins-section-paragraph {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px 30px;
+  text-align: left;
+  background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  transition: transform 0.3s ease;
+}
+
+.recycle-bins-section-paragraph p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+}
+
+/* Color Coding for Specific Bins */
+.general-waste {
+  font-weight: bold;
+  color: #5a5a5a; /* Grey or Black color for General Waste Bin */
+}
+
+.recycle-bin {
+  font-weight: bold;
+  color: #1e90ff; /* Blue color for Recycle Bin */
+}
+
+.compost-bin {
+  font-weight: bold;
+  color: #2b8a3e; /* Green color for Compost Bin */
+}
+
+/* Container Styling */
+.recycle-bins-cards {
   display: flex;
-  flex-direction: column; /* Stack the content vertically */
-  margin-bottom: 20px; /* Add some space at the bottom for each card */
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 20px;
 }
 
-/* Hover effect for the cards */
+/* Base Card Styling */
+.recycle-bin-card {
+  width: 31%;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover Effect */
 .recycle-bin-card:hover {
-  transform: translateY(-8px); /* Slight lift effect */
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* Image Styling inside the card */
+/* Individual Card Colors */
+.general-waste-card {
+  background-color: #5a5a5a; /* Grey background */
+  color: #ffffff;
+}
+
+.recycle-bin {
+  background-color: #1e90ff; /* Blue background */
+  color: #ffffff;
+}
+
+.compost-bin {
+  background-color: #2b8a3e; /* Green background */
+  color: #ffffff;
+}
+
+/* Image Styling */
 .recycle-bin-card img {
   width: 100%;
-  height: 300px; /* Set height of image to 300px */
-  object-fit: cover; /* Ensure image covers the area without distorting */
+  height: 300px;
+  object-fit: cover;
   border-radius: 5px;
   margin-bottom: 15px;
 }
 
-/* Title and description text inside the card */
+/* Title Styling */
 .recycle-bin-card h3 {
   font-size: 22px;
   margin-bottom: 10px;
 }
 
+/* Description Text Styling */
 .recycle-bin-card p {
   font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 0;
+  line-height: 1.5;
 }
 
-/* Optional: Make the layout responsive for smaller screens */
+/* Responsive Design */
 @media (max-width: 1024px) {
-  .recycle-bins-cards {
-      justify-content: center; /* Center cards on medium screens */
-  }
-
   .recycle-bin-card {
-      width: 45%; /* Adjust width on medium screens */
+    width: 45%;
   }
 }
 
 @media (max-width: 768px) {
   .recycle-bins-cards {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
   .recycle-bin-card {
-      width: 80%; /* Adjust width on smaller screens */
+    width: 80%;
   }
 }
 
-/* ____________________References to Reduce Food Waste Section Styles - Starts Here ____________________ */
 /* ____________________References to Reduce Food Waste Section Styles - Starts Here ____________________ */
 .references-section {
   background-color: white; /* White background */
@@ -658,88 +725,101 @@
   background-color: #94BF73;
 }
 
-/* Styling for each content block */
+/* Styling for overall content layout */
 .references-content {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 20px; /* Reduced space between sections */
-  align-items: center;
+  margin-bottom: 30px;
+  align-items: left;
 }
 
-/* Text content styling */
-.references-text {
-  width: 100%; /* Take full width for the first section */
+/* Intro Section Styling */
+.intro-section {
+  padding: 20px;
   text-align: left;
-  margin-bottom: 20px; /* Reduced bottom margin */
-}
-
-/* For headers inside text */
-.references-text h3 {
-  font-size: 24px;
-  margin-bottom: 15px;
-}
-
-/* For paragraph text */
-.references-text p {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-/* Link styling */
-.references-text ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.references-text ul li {
-  margin: 10px 0;
-}
-
-.references-text ul li a {
-  color: #94BF73;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.references-text ul li a:hover {
-  text-decoration: underline;
-}
-
-/* Image styling */
-.references-image {
-  width: 48%; /* Make space for the text */
-}
-
-.references-image img {
-  width: 100%;
-  height: auto;
-  max-width: 500px; /* Ensure the image doesn't exceed 500px */
+  background-color: #f8f9fa; /* Light background for intro */
   border-radius: 8px;
 }
 
-/* Responsive adjustments */
+/* Resource Text and Image Split */
+.resources-section .references-text {
+  width: 48%; /* Aligns with image width for balance */
+  text-align: left;
+}
+
+.resources-section .references-image {
+  width: 48%; /* Matches text width */
+}
+
+/* Text Content Styling */
+.references-text h3 {
+  font-size: 22px;
+  margin-top: 10px;
+  margin-bottom: 12px;
+}
+
+.references-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+/* Link and List Styling */
+.references-text ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 15px 0;
+}
+
+.references-text ul li {
+  margin: 8px 0;
+}
+
+.references-text ul li a {
+  color: #1e90ff; /* Interactive color for links */
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.references-text ul li a:hover {
+  color: #0044cc;
+  text-decoration: underline;
+}
+
+/* Image Styling */
+.references-image img {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments */
 @media (max-width: 1024px) {
   .references-content {
-      flex-direction: column;
-      align-items: center;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .references-text,
-  .references-image {
-      width: 100%;
+  .resources-section .references-text,
+  .resources-section .references-image {
+    width: 100%;
   }
 
   .references-image img {
-      max-width: 100%;
+    max-width: 100%;
   }
 }
 
 @media (max-width: 768px) {
-  .section-header h2 {
-      font-size: 26px; /* Smaller title on mobile */
+  .references-text h3 {
+    font-size: 20px;
   }
 
-  .references-text p {
-      font-size: 14px;
+  .references-text p,
+  .references-text ul li a {
+    font-size: 14px;
   }
 }
