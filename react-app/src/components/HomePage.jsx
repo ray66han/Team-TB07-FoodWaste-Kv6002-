@@ -92,7 +92,10 @@ return (
                 </div>
 
                 <div className="carousel-container">
-                    <button className="carousel-control prev" onClick={() => document.getElementById("carousel").scrollLeft -= 600}>
+                    <button className="carousel-control prev" onClick={() => {
+                        const carousel = document.getElementById("carousel");
+                        carousel.scrollLeft -= carousel.offsetWidth; // Scroll by 100% of the container width
+                    }}>
                         &lt;
                     </button>
                     
@@ -147,82 +150,94 @@ return (
                         ></iframe>
                     </div>
 
-                    <button className="carousel-control next" onClick={() => document.getElementById("carousel").scrollLeft += 600}>
+                    <button className="carousel-control next" onClick={() => { 
+                        const carousel = document.getElementById("carousel");
+                        carousel.scrollLeft += carousel.offsetWidth; // Scroll by 100% of the container width
+                        }}>
                         &gt;
                     </button>
                 </div>
             </div>
         </div>
 
+
+
+
         {/* --------------------------------------------Educational Photos Section Start Here-------------------------------------------- */}
-        <div className="educational-photo-section">
-    
-      <div className="section-header">
-        <h2>Educational Photos</h2>
-      </div>
-    
-      <div className="carousel-container">
+        <div className="container">
+            <div className="educational-photo-section">
         
-        <button 
-          className="carousel-control prev" 
-          onClick={() => document.getElementById("photo-carousel").scrollLeft -= 800}
-        >
-          &lt;
-        </button>
-        
-        <div id="photo-carousel" className="carousel">
-          <div className="carousel-photo">
-            <img
-              src="/src/assets/images/EducationalPhotots/image01.jpg"
-              alt="Educational Photo 1"
-              className="carousel-image"
-            />
-            <div className="photo-caption">
-              Food waste accelerates climate change. Reduce it to protect our planet.
+                <div className="section-header">
+                    <h2>Visual Guide to Reducing Food Waste</h2>
+                </div>
+
+                <div className="educational-video-text">
+                        <p>Here are some photos that will help you learn more about how to reduce food waste:</p>
+                </div>
+                
+                <div className="carousel-container">
+                    
+                    <button 
+                    className="carousel-control prev" 
+                    onClick={() => document.getElementById("photo-carousel").scrollLeft -= 800}
+                    >
+                    &lt;
+                    </button>
+                    
+                    <div id="photo-carousel" className="carousel">
+                    <div className="carousel-photo">
+                        <img
+                        src="/src/assets/images/EducationalPhotots/image01.jpg"
+                        alt="Educational Photo 1"
+                        className="carousel-image"
+                        />
+                        <div className="photo-caption">
+                            Food waste accelerates climate change. Reduce it to protect our planet.
+                        </div>
+                    </div>
+                    <div className="carousel-photo">
+                        <img
+                        src="/src/assets/images/EducationalPhotots/image02.jpg"
+                        alt="Educational Photo 2"
+                        className="carousel-image"
+                        />
+                        <div className="photo-caption">
+                            Planning meals and checking expiry dates prevents food waste.
+                        </div>
+                    </div>
+                    <div className="carousel-photo">
+                        <img
+                        src="/src/assets/images/EducationalPhotots/image03.png"
+                        alt="Educational Photo 3"
+                        className="carousel-image"
+                        />
+                        <div className="photo-caption">
+                            Wasting food is like throwing away money.
+                        </div>
+                    </div>
+                    <div className="carousel-photo">
+                        <img
+                        src="/src/assets/images/EducationalPhotots/image04.jpg"
+                        alt="Educational Photo 4"
+                        className="carousel-image"
+                        />
+                        <div className="photo-caption">
+                            Reduce food waste and save the environment for a sustainable future.
+                        </div>
+                    </div>
+                    </div>
+                    
+                    <button 
+                    className="carousel-control next" 
+                    onClick={() => document.getElementById("photo-carousel").scrollLeft += 800}
+                    >
+                    &gt;
+                    </button>
+                    
+                </div>
+                
             </div>
-          </div>
-          <div className="carousel-photo">
-            <img
-              src="/src/assets/images/EducationalPhotots/image02.jpg"
-              alt="Educational Photo 2"
-              className="carousel-image"
-            />
-            <div className="photo-caption">
-              Planning meals and checking expiry dates prevents food waste.
-            </div>
-          </div>
-          <div className="carousel-photo">
-            <img
-              src="/src/assets/images/EducationalPhotots/image03.png"
-              alt="Educational Photo 3"
-              className="carousel-image"
-            />
-            <div className="photo-caption">
-              Wasting food is like throwing away money.
-            </div>
-          </div>
-          <div className="carousel-photo">
-            <img
-              src="/src/assets/images/EducationalPhotots/image04.jpg"
-              alt="Educational Photo 4"
-              className="carousel-image"
-            />
-            <div className="photo-caption">
-              Join the movement against food waste for a sustainable future.
-            </div>
-          </div>
         </div>
-        
-        <button 
-          className="carousel-control next" 
-          onClick={() => document.getElementById("photo-carousel").scrollLeft += 800}
-        >
-          &gt;
-        </button>
-        
-      </div>
-      
-    </div>
 
         {/* --------------------------------------------Join the Movement Section Start Here-------------------------------------------- */}
         <div className="container">
