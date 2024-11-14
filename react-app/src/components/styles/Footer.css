@@ -1,0 +1,43 @@
+/* ____________________Footer Section Styles - Starts Here ____________________ */
+.footer {
+  background-color: #343434; /* Dark background */
+  color: white; /* White text */
+  text-align: center; /* Centered text */
+  padding: 20px 0; /* Padding for the footer */
+  font-family: 'Roboto', sans-serif; /* Use a clean, modern font */
+  font-size: 16px; /* Larger font size for better readability */
+  line-height: 1.6; /* Adjust line height for better readability */
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+.footer:hover {
+  background-color: #444; /* Slight change on hover */
+}
+
+.footer p {
+  margin: 0; /* Remove default margin */
+  font-weight: 400; /* Lighter text weight for readability */
+  letter-spacing: 0.5px; /* Slightly increase letter spacing */
+  opacity: 0.8; /* Subtle fade effect */
+  transition: opacity 0.3s ease;
+}
+
+.footer:hover p {
+  opacity: 1; /* Full opacity on hover */
+}
+
+.footer p a {
+  color: #4CAF50; /* Link color */
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.footer p a:hover {
+  color: #FF5722; /* Link hover color */
+}
+
+/* ____________________End of Footer Section Styles ____________________ */

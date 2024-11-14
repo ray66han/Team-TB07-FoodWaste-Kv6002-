@@ -1,0 +1,72 @@
+/* Educational Photos Section Styles */
+.educational-photo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.section-header {
+    margin-bottom: 20px;
+}
+
+.section-header h2 {
+    font-size: 30px;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+/* Underline effect for the header */
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #94BF73;
+}
+
+
+
+
+/* Carousel photo styling */
+.carousel-photo {
+    position: relative;
+    flex-shrink: 0;
+    min-width: 60%;  /* Minimum width for each photo */
+    height: 600px; /* Fixed height */
+    margin-right: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ensure the image fits the container without distortion (cover) */
+.carousel-image {
+    max-width: 100%;       /* Ensures the image does not overflow horizontally */
+    max-height: 100%;      /* Ensures the image does not overflow vertically */
+    object-fit: cover;     /* Keeps the image's aspect ratio while filling the container */
+    width: auto;           /* Adjusts width dynamically based on height */
+    height: auto;          /* Adjusts height dynamically based on width */
+    border-radius: 10px;   /* Adds rounded corners */
+}
+
+/* Caption styling */
+.photo-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+}
