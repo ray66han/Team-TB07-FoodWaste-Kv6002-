@@ -51,14 +51,20 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
         <h2>{editItem ? "Edit Item" : "Add Item"}</h2>
         <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Name:</label>
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-          </div>
+        <label>Name:</label>
+         <input
+         type="text"
+        value={name}
+        onChange={(e) => {
+         const value = e.target.value;
+         if (/^[a-zA-Z\s]*$/.test(value)) {
+           setName(value);
+         }
+        }}
+        required
+         />
+        </div>
+
 
           <div className="form-group">
         <label>Expiry Date:</label>
@@ -75,6 +81,7 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
           <label>Price (£):</label>
           <input
             type="number"
+            min="1"
             step="0.01"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
