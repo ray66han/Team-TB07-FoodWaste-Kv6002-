@@ -216,53 +216,62 @@ app.delete("/items/:id", async (req, res) => {
 });
 
 app.get("/savings-stats", async (req, res) => {
-  console.log("Got innnnnnnnnnnnnnnnn", req);
-  try {
-    // Calculate the start of the current month
-    const startOfMonth = new Date();
-    startOfMonth.setDate(1);
-    startOfMonth.setHours(0, 0, 0, 0);
+  console.log("Starting /savings-stats endpoint");
 
-    // Retrieve items added from the start of the month onwards
-    const items = await FridgeItem.find({ createdAt: { $gte: startOfMonth } });
+  try {
+    // Start of the current month
+    const currentDate = new Date();
+    const startOfMonth = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth(),
+      1
+    );
+    console.log("Start of month:", startOfMonth);
+
+    // Retrieve items added within the current month
+    const items = await FridgeItem.find({
+      expiryDate: { $gte: startOfMonth.toISOString() },
+    });
+    console.log("Items retrieved from database:", items);
 
     let savedMoney = 0;
     let wastedMoney = 0;
     let itemsWasted = 0;
     let soonToExpire = 0;
 
-    const currentDate = new Date();
-
     items.forEach((item) => {
-      // Ensure expiryDate is treated as a Date object for accurate comparison
-      const expiryDate = new Date(item.expiryDate);
+      const expiryDate = new Date(item.expiryDate); // Convert expiryDate to Date object
+      console.log(
+        `Processing item: ${item.name}, Status: ${item.status}, Expiry Date: ${expiryDate}`
+      );
 
-      // Calculate savedMoney: items that are marked as "used" (status: true) and have not expired
       if (item.status === true && expiryDate >= currentDate) {
-        savedMoney += item.price;
-      }
-      console.log("Saved Money:", savedMoney);
-
-      // Calculate wastedMoney: items that are marked as "not used" (status: false) and have expired
-      if (item.status === false && expiryDate < currentDate) {
-        wastedMoney += item.price;
+        // Item used before expiry
+        savedMoney += item.price * item.quantity;
+      } else if (item.status === false && expiryDate < currentDate) {
+        // Item expired and not used
+        wastedMoney += item.price * item.quantity;
         itemsWasted += 1;
       }
-      console.log("Wasted Money:", wastedMoney);
 
-      // Calculate soonToExpire: items with 0 to 3 days left before expiry
-      const daysUntilExpiry =
-        (expiryDate - currentDate) / (1000 * 60 * 60 * 24);
-      if (daysUntilExpiry >= 0 && daysUntilExpiry <= 3) {
+      // Soon-to-expire items
+      const daysToExpiry = (expiryDate - currentDate) / (1000 * 60 * 60 * 24);
+      if (daysToExpiry > 0 && daysToExpiry <= 3 && item.status === false) {
         soonToExpire += 1;
       }
     });
 
+    console.log("Final calculated stats:", {
+      savedMoney,
+      wastedMoney,
+      itemsWasted,
+      soonToExpire,
+    });
+
     res.json({ savedMoney, wastedMoney, itemsWasted, soonToExpire });
   } catch (error) {
-    console.log("Error calculating savings stats:", error);
-    console.error("Error calculating savings stats:", error);
-    res.status(500).json({ error: "Internal server error" });
+    console.error("Error in /savings-stats endpoint:", error);
+    res.status(500).json({ error: "Error calculating savings stats" });
   }
 });
 
