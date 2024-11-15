@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import FridgeForm from "./FridgeForm";
 import "./styles/FridgeList.css";
+import EditIcon from "../assets/icons/editing.png";
+import DeleteIcon from "../assets/icons/delete.png";
 
-const FridgeList = ({ onItemSelected , onStatusChange}) => {
+
+const FridgeList = ({ onItemSelected, onStatusChange }) => {
   const [items, setItems] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [editItem, setEditItem] = useState(null);
@@ -11,18 +14,11 @@ const FridgeList = ({ onItemSelected , onStatusChange}) => {
 
   const fetchItems = () => {
     fetch("http://localhost:5000/items")
-      .then((response) => {
-        // console.log("Items fetch response:", response);
-        return response.json();
-      })
-      .then((data) => {
-        // console.log("Fetched items data:", data);
-        setItems(data);
-      })
+      .then((response) => response.json())
+      .then((data) => setItems(data))
       .catch((error) => console.error("Error fetching items:", error));
   };
 
- 
   useEffect(() => {
     fetchItems();
   }, []);
@@ -48,29 +44,28 @@ const FridgeList = ({ onItemSelected , onStatusChange}) => {
     setShowDeleteConfirm(false);
   };
 
-const handleStatusChange = async (itemId, currentStatus) => {
-  try {
-    const response = await fetch(`http://localhost:5000/items/${itemId}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ status: !currentStatus }),
-    });
+  const handleStatusChange = async (itemId, currentStatus) => {
+    try {
+      const response = await fetch(`http://localhost:5000/items/${itemId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ status: !currentStatus }),
+      });
 
-    if (response.ok) {
-      fetchItems();
-      onStatusChange();
-    } else {
-      console.error("Failed to update item status on the server");
+      if (response.ok) {
+        fetchItems();
+        onStatusChange();
+      } else {
+        console.error("Failed to update item status on the server");
+      }
+    } catch (error) {
+      console.error("Failed to update item status:", error);
     }
-  } catch (error) {
-    console.error("Failed to update item status:", error);
-  }
-};
-
+  };
 
   const handleSelectItem = (item) => {
-    onItemSelected(item.category);  
-  };  
+    onItemSelected(item.category);
+  };
 
   const handleFormSubmit = (submittedItem) => {
     setItems((prevItems) => {
@@ -85,11 +80,15 @@ const handleStatusChange = async (itemId, currentStatus) => {
     setShowForm(false);
   };
 
+  const currentDate = new Date();
+
   return (
     <div>
       <div className="fridge-header">
         <h2>Fridge</h2>
-        <button className="add-item-btn" onClick={handleAddButtonClick}>Add Item +</button>
+        <button className="add-item-btn" onClick={handleAddButtonClick}>
+          Add Item +
+        </button>
       </div>
 
       {showForm && (
@@ -104,45 +103,65 @@ const handleStatusChange = async (itemId, currentStatus) => {
         <div className="modal-overlay">
           <div className="modal-content">
             <p>Are you sure you want to delete this item?</p>
-            <button className="btn btn-danger" onClick={confirmDelete}>Yes</button>
-            <button className="btn btn-secondary" onClick={() => setShowDeleteConfirm(false)}>Cancel</button>
+            <button className="btn btn-danger" onClick={confirmDelete}>
+              Yes
+            </button>
+            <button className="btn btn-secondary" onClick={() => setShowDeleteConfirm(false)}>
+              Cancel
+            </button>
           </div>
         </div>
       )}
 
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Expiry Date</th>
-            <th>Price (£)</th>
-            <th>Quantity</th>
-            <th>Used/Wasted</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {items.map((item) => (
-            <tr key={item._id} onClick={() => handleSelectItem(item)}>
-              <td>{item.name}</td>
-              <td>{new Date(item.expiryDate).toLocaleDateString("en-CA")}</td>
-              <td>£{item.price}</td>
-              <td>{item.quantity}</td>
-              <td>
-                <input
-                  type="checkbox"
-                  checked={item.status === true}
-                  onChange={() => handleStatusChange(item._id, item.status)}
-                />
-              </td>
-              <td>
-                <button onClick={() => handleEditButtonClick(item)}>Edit</button>
-                <button onClick={() => handleDeleteClick(item._id)}>Delete</button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Expiry Date</th>
+      <th>Price (£)</th>
+      <th>Quantity</th>
+      <th>Used/Wasted</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {items.map((item) => {
+      const isExpired = new Date(item.expiryDate) < new Date();
+
+      return (
+        <tr
+          key={item._id}
+          className={isExpired ? "expired-item" : ""}
+          onClick={() => !isExpired && handleSelectItem(item)}
+        >
+          <td>{item.name}</td>
+          <td>{new Date(item.expiryDate).toLocaleDateString("en-CA")}</td>
+          <td>£{item.price}</td>
+          <td>{item.quantity}</td>
+          <td>
+            <input
+              type="checkbox"
+              checked={item.status === true}
+              onChange={() => handleStatusChange(item._id, item.status)}
+              disabled={isExpired}
+            />
+          </td>
+          <td>
+          <button onClick={() => handleEditButtonClick(item)} disabled={isExpired}  className="edit-button">
+           <img src={EditIcon} alt="Edit" style={{ width: "20px", height: "20px" }} />
+          </button>
+         </td>
+          <td>
+          <button onClick={() => handleDeleteClick(item)} className="delete-button">
+           <img src={DeleteIcon} alt="Delete" style={{ width: "20px", height: "20px" }} />
+          </button>
+        </td>
+        </tr>
+      );
+    })}
+  </tbody>
+</table>
     </div>
   );
 };

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import "./styles/Savings.css";
 
 const Savings = ({ refresh }) => {
   const [stats, setStats] = useState({
-    savedMoney: 10.3,
-    wastedMoney: 2,
-    itemsWasted: 3,
-    soonToExpire: 20,
+    savedMoney: 0,
+    wastedMoney: 0,
+    itemsSaved: 0,
+    itemsWasted: 0,
+    soonToExpire: 0,
   });
 
   useEffect(() => {
@@ -34,14 +36,13 @@ const Savings = ({ refresh }) => {
       <div className="saved-info">
         <h3>Saved</h3>
         <p>Monthly saved money: £{(stats.savedMoney ?? 0).toFixed(2)}</p>
-        <p>Items wasted: {stats.itemsWasted}</p>
+        <p>Items saved: {stats.itemsSaved}</p>
         <p>Soon-to-Expire: {stats.soonToExpire}</p>
       </div>
       <div className="wasted-info">
         <h3>Wasted</h3>
         <p>Monthly wasted money: £{(stats.wastedMoney ?? 0).toFixed(2)}</p>
         <p>Items wasted: {stats.itemsWasted}</p>
-        <p>Soon-to-Expire: {stats.soonToExpire}</p>
       </div>
     </div>
   );
