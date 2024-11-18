@@ -130,5 +130,24 @@ th {
 }
 
 .modal .form-buttons button {
-  width: 48%;  
+  width: 48%;
+}
+
+.delete-button {
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: red;
+}
+.edit-button:disabled {
+  background-color: grey;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.expired-item {
+  opacity: 0.5;
 }
