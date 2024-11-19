@@ -204,3 +204,34 @@ app.delete("/items/:id", async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+// Notifications route to fetch items with notifications
+app.get('/notifications', async (req, res) => {
+  try {
+    const items = await FridgeItem.find({}, { name: 1, expiryDate: 1, status: 1 });
+    res.status(200).json(items);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch notifications' });
+  }
+});
+
+// Update notification preferences for a fridge item
+app.post('/notifications', async (req, res) => {
+  const { id, status } = req.body;
+
+  try {
+    const updatedItem = await FridgeItem.findByIdAndUpdate(
+      id,
+      { status },
+      { new: true }
+    );
+
+    if (!updatedItem) {
+      return res.status(404).json({ error: 'Item not found' });
+    }
+
+    res.status(200).json(updatedItem);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to update notification preferences' });
+  }
+});
