@@ -1,9 +1,10 @@
 import React from 'react';
+import Notifications from './Notifications';
 
 function SettingsPage() {
   return (
     <div>
-      Hello, World! Settings page
+    <Notifications />
     </div>
   );
 }
