@@ -1,60 +1,73 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    padding: 10px 20px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .navbar-logo {
-    display: flex;
-    align-items: center;
-  }
-  
-  .logo {
-    width: 40px; /* Adjust size as needed */
-    margin-right: 10px;
-  }
-  
-  .app-name {
-    font-size: 1.5em;
-    color: #4CAF50; /* Match color scheme */
-    font-weight: bold;
-  }
-  
-  .navbar-links {
-    display: flex;
-    align-items: center;
-  }
-  
-  .nav-link {
-    font-size: 1.2em;
-    color: #FF5722; /* Color for "Fridge" */
-    text-decoration: none;
-    margin-right: 20px;
-  }
-  
-  .nav-link:hover {
-    text-decoration: underline;
-  }
-  
-  .user-settings {
-    display: flex;
-    align-items: center;
-  }
-  
-  .username {
-    font-size: 1.1em;
-    color: #4CAF50;
-    margin-right: 10px;
-    text-decoration: none;
-  }
-  
-  .settings-icon {
-    font-size: 1.5em;
-    color: #4CAF50;
-    cursor: pointer;
-    text-decoration: none;
-  }
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+  margin-right: 10px;
+}
+
+.app-name {
+  font-size: 1.5em;
+  color: #4caf50;
+  font-weight: bold;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 1.2em;
+  color: #ff5722;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+.user-settings {
+  display: flex;
+  align-items: center;
+}
+
+.username {
+  font-size: 1.1em;
+  color: #4caf50;
+  margin-right: 10px;
+  text-decoration: none;
+}
+
+.settings-icon {
+  font-size: 1.5em;
+  color: #4caf50;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+}
+
+.settings-btn {
+  display: flex;
+  width: auto;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  padding: 0;
+}

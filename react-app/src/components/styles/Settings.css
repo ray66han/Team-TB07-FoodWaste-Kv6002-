@@ -1,0 +1,23 @@
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 50px;
+  list-style-type: none;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  display: none;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 10px;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: black;
+}

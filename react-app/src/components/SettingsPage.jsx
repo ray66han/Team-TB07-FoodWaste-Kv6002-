@@ -1,11 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './styles/Settings.css';
 
-function SettingsPage() {
+const SettingsPage = ({ show, onClose }) => {
+  if (!show) return null;
+
   return (
-    <div>
-      Hello, World! Settings page
-    </div>
+    <ul className="dropdown-menu show">
+      <li>
+        <a href="/notifications">Notifications</a>
+      </li>
+      <li>
+        <a href="#" onClick={(e) => e.preventDefault()}>Update Profile</a>
+      </li>
+      <li>
+        <a href="#" onClick={(e) => e.preventDefault()}>Logout</a>
+      </li>
+    </ul>
   );
-}
+};
 
 export default SettingsPage;
