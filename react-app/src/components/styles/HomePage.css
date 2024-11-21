@@ -1,296 +1,294 @@
 /* ____________________Banner Styles - Starts Here____________________ */
 .banner {
-    background-image: url('/src/assets/images/Banner/banner-food-image.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 50vh; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: white;
-    position: relative;
-    padding: 20px;
-  }
-  
-  .banner-content {
-    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-    padding: 30px;
-    border-radius: 10px;
-  }
-  
-  .banner h1 {
-    font-size: 36px;
-    margin-bottom: 15px;
-    color: #F87A53; /* Heading One color */
-  }
-  
-  .banner-section {
-    background-color: #94BF73;  /* Banner - Soft green background */
-    padding: 20px;
-    text-align: center;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-  }
-  
-  .banner-text {
-    font-size: 1rem;
-    color: white;
-    font-weight: bold;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  
-  .banner-text:hover {
-    color: #d1f7e6;  /* Text Hover - Slight lightening effect on hover */
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  
-  .banner-btn {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #F87A53; /* Button background color */
-    color: white; /* Banner - Button text color */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .banner-btn:hover {
-    background-color: #c96f49; /* Button Hover - Darker button color on hover */
-  }
+  background-image: url("/src/assets/images/Banner/banner-food-image.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  position: relative;
+  padding: 20px;
+}
 
-  /* ____________________About Us Section Styles - Starts Here____________________ */
+.banner-content {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.banner h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  color: #f87a53; /* Heading One color */
+}
+
+.banner-section {
+  background-color: #94bf73; /* Banner - Soft green background */
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.banner-text {
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.banner-text:hover {
+  color: #d1f7e6; /* Text Hover - Slight lightening effect on hover */
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.banner-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #f87a53; /* Button background color */
+  color: white; /* Banner - Button text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.banner-btn:hover {
+  background-color: #c96f49; /* Button Hover - Darker button color on hover */
+}
+
+/* ____________________About Us Section Styles - Starts Here____________________ */
 .about-us-section {
-    margin-top: 50px; 
-    background-color: white; 
-    border: 2px solid #94BF73; /* Border color set to #94BF73 */
-    border-radius: 10px; /* Rounded corners */
-    padding: 40px; 
-  }
-  
-  .about-us-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .about-us-text {
-    flex: 1; 
-    padding-right: 20px; 
-    text-align: center; 
-  }
-  
-  .about-us-text h2 {
-    font-size: 30px;
-    margin-bottom: 15px;
-    position: relative;
-    display: inline-block; 
-  }
-  
-  /* About Us - Responsive underline style for the heading */
-  .about-us-text h2::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%; /* The underline will only span the width of the text */
-    height: 3px;
-    background-color: #94BF73; /* Underline color */
-  }
-  
-  /* Styling for the paragraph */
-  .about-us-text-introduction {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #444;
-    margin-bottom: 1.2rem;
-    max-width: 750px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .about-us-text-mission {
-    font-size: 1.2rem;
-    line-height: 1.8;
-    color: #2d3e50;
-    background-color: #eaf7f3;
-    padding: 1rem;
-    border-left: 5px solid #94BF73;
-    margin-bottom: 1.2rem;
-    max-width: 750px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .about-us-text-tools {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #333;
-    margin-bottom: 1.2rem;
-    max-width: 750px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .about-us-text-invite {
-    font-size: 1.3rem;
-    color: #2e8b57;
-    font-weight: bold;
-    text-align: center;
-    padding: 1rem;
-    background-color: #f0f9f4;
-    border-radius: 8px;
-    max-width: 750px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .about-us-image {
-    flex: 1; 
-    max-width: 50%; 
-    overflow: hidden; 
-    border-radius: 10px; 
-  }
-  
-  .about-us-image img {
-    width: 100%; 
-    height: 100%; 
-    object-fit: cover; 
-  }
+  margin-top: 50px;
+  background-color: white;
+  border: 2px solid #94bf73; /* Border color set to #94BF73 */
+  border-radius: 10px; /* Rounded corners */
+  padding: 40px;
+}
 
+.about-us-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-us-text {
+  flex: 1;
+  padding-right: 20px;
+  text-align: center;
+}
+
+.about-us-text h2 {
+  font-size: 30px;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+/* About Us - Responsive underline style for the heading */
+.about-us-text h2::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%; /* The underline will only span the width of the text */
+  height: 3px;
+  background-color: #94bf73; /* Underline color */
+}
+
+/* Styling for the paragraph */
+.about-us-text-introduction {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 1.2rem;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-us-text-mission {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #2d3e50;
+  background-color: #eaf7f3;
+  padding: 1rem;
+  border-left: 5px solid #94bf73;
+  margin-bottom: 1.2rem;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-us-text-tools {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 1.2rem;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-us-text-invite {
+  font-size: 1.3rem;
+  color: #2e8b57;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
+  background-color: #f0f9f4;
+  border-radius: 8px;
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.about-us-image {
+  flex: 1;
+  max-width: 50%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.about-us-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
 /* ____________________Impact of Food Waste Section Styles - Start Here____________________ */
 .impact-section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 50px 0;
-    height: 60vh; 
-  }
-  
-  .impact-text {
-    flex: 1;
-    padding-right: 20px;
-    text-align: left;
-  }
-  
-  .impact-text h2 {
-    font-size: 30px;
-    position: relative;
-    display: inline-block;
-  }
-  
-  /* ImpactOfFoodWaste - Underline effect for the heading */
-  .impact-text h2::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: #94BF73;
-  }
-  
-  .impact-text p {
-    font-size: 18px;
-    line-height: 1.6;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px 0;
+  height: 60vh;
+}
 
-  /* paragraph style */
-  .food-waste-impact-text {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #333;
-    max-width: 700px;
-    margin: auto;
-  }
-  
-  .food-waste-impact-text a {
-    color: #94BF73;
-    text-decoration: none;
-  }
-  
-  .food-waste-impact-text a:hover {
-    text-decoration: underline;
-  }
-  
-  .highlight-water-energy {
-    background-color: yellow;
-    font-weight: bold;
-  }
-  
-  strong {
-    color: #2f4f4f;
-  }
-  
-  /* Image Section Styles */
-  .impact-image-section {
-    flex: 1;
-    display: flex;
-    justify-content: space-around; /* Distribute images with space between */
-    align-items: center;
-    transition: transform 0.3s ease;
-  }
-  
-  .impact-image {
-    position: relative;
-    width: 150px; 
-    height: 500px; 
-    overflow: hidden;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.5s ease-in-out, width 0.5s ease-in-out;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 15px; /* Add space between images */
-  }
-  
-  .impact-image img {
-    width: 100%; 
-    height: 80%; 
-    object-fit: cover; /* Ensure the image covers the container without distortion */
-    transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
-  }
-  
-  /* Hover effect on image */
-  .impact-image:hover {
-    transform: scale(1.2); 
-    width: 100%; 
-    z-index: 10; 
-    margin: 0; 
-  }
-  
-  /* Overlay message on image */
-  .image-overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    display: none;
-  }
-  
-  /* Show overlay message on hover */
-  .impact-image:hover .image-overlay {
-    display: block;
-  }
-  
-  /* Make the image full-screen when clicked */
-  .impact-image:active img {
-    transform: scale(1.5); 
-  }
+.impact-text {
+  flex: 1;
+  padding-right: 20px;
+  text-align: left;
+}
 
+.impact-text h2 {
+  font-size: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+/* ImpactOfFoodWaste - Underline effect for the heading */
+.impact-text h2::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #94bf73;
+}
+
+.impact-text p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+/* paragraph style */
+.food-waste-impact-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+  max-width: 700px;
+  margin: auto;
+}
+
+.food-waste-impact-text a {
+  color: #94bf73;
+  text-decoration: none;
+}
+
+.food-waste-impact-text a:hover {
+  text-decoration: underline;
+}
+
+.highlight-water-energy {
+  background-color: yellow;
+  font-weight: bold;
+}
+
+strong {
+  color: #2f4f4f;
+}
+
+/* Image Section Styles */
+.impact-image-section {
+  flex: 1;
+  display: flex;
+  justify-content: space-around; /* Distribute images with space between */
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.impact-image {
+  position: relative;
+  width: 150px;
+  height: 500px;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.5s ease-in-out, width 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 15px; /* Add space between images */
+}
+
+.impact-image img {
+  width: 100%;
+  height: 80%;
+  object-fit: cover; /* Ensure the image covers the container without distortion */
+  transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Hover effect on image */
+.impact-image:hover {
+  transform: scale(1.2);
+  width: 100%;
+  z-index: 10;
+  margin: 0;
+}
+
+/* Overlay message on image */
+.image-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+}
+
+/* Show overlay message on hover */
+.impact-image:hover .image-overlay {
+  display: block;
+}
+
+/* Make the image full-screen when clicked */
+.impact-image:active img {
+  transform: scale(1.5);
+}
 
 /*  ____________________Educational Video Section Styles - Starts Here ____________________ */
 /* General styling for the Educational Videos section */
@@ -299,10 +297,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 0;  /* Added more padding for better spacing */
+  padding: 40px 0; /* Added more padding for better spacing */
   text-align: center;
-  max-width: 1200px;  /* Limit max width for better alignment */
-  margin: 0 auto;  /* Center the section horizontally */
+  max-width: 1200px; /* Limit max width for better alignment */
+  margin: 0 auto; /* Center the section horizontally */
 }
 
 /* Section Header Styling */
@@ -312,20 +310,20 @@
 
 .section-header h2 {
   font-size: 32px;
-  font-weight: 700;  /* Make the header bolder */
+  font-weight: 700; /* Make the header bolder */
   position: relative;
   padding-bottom: 8px;
 }
 
 /* Underline effect for the header */
 .section-header h2::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -5px;
   left: 0;
   width: 100%;
   height: 4px;
-  background-color: #94BF73;
+  background-color: #94bf73;
 }
 
 /* Carousel container styling */
@@ -343,17 +341,17 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   width: 100%;
-  scroll-snap-type: x mandatory;  /* Ensure smooth scrolling between items */
+  scroll-snap-type: x mandatory; /* Ensure smooth scrolling between items */
 }
 
 .carousel-video {
   flex-shrink: 0;
   min-width: 100%;
   height: 600px;
-  margin-right: 20px;  /* Increased margin for better separation */
+  margin-right: 20px; /* Increased margin for better separation */
   border-radius: 10px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  object-fit: cover;  /* Ensure videos are responsive and cover the area */
+  object-fit: cover; /* Ensure videos are responsive and cover the area */
 }
 
 /* Carousel control buttons */
@@ -361,14 +359,14 @@
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
-  padding: 15px 25px;  /* Increased padding for larger buttons */
-  font-size: 22px;  /* Increased font size for better visibility */
+  padding: 15px 25px; /* Increased padding for larger buttons */
+  font-size: 22px; /* Increased font size for better visibility */
   cursor: pointer;
   position: absolute;
   top: 50%;
   z-index: 1;
-  transform: translateY(-50%);  /* Center buttons vertically */
-  transition: background-color 0.3s ease;  /* Smooth transition effect */
+  transform: translateY(-50%); /* Center buttons vertically */
+  transition: background-color 0.3s ease; /* Smooth transition effect */
 }
 
 .prev {
@@ -387,51 +385,51 @@
 /* Make iframe responsive for smaller screens */
 @media (max-width: 768px) {
   .carousel-video {
-      height: 300px;  /* Adjust height for smaller screens */
+    height: 300px; /* Adjust height for smaller screens */
   }
 
   .carousel-container {
-      width: 90%;  /* Adjust width for smaller screens */
+    width: 90%; /* Adjust width for smaller screens */
   }
 
   .carousel-control {
-      padding: 12px 18px;  /* Smaller buttons for mobile */
-      font-size: 20px;  /* Smaller text on buttons */
+    padding: 12px 18px; /* Smaller buttons for mobile */
+    font-size: 20px; /* Smaller text on buttons */
   }
 }
 
 /* Educational Video Text Section */
 .educational-video-text {
   font-size: 18px;
-  line-height: 1.7;  /* Increased line height for better readability */
-  max-width: 900px;  /* Slightly larger width for text */
-  margin: 0 auto 30px auto;  /* Center horizontally with more space at the bottom */
-  padding: 15px 25px;  /* Add more padding around the text */
-  background-color: #f4f9f4;  /* Light background color to make it stand out */
-  border-radius: 10px;  /* Rounded corners */
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);  /* Slightly larger shadow for more emphasis */
+  line-height: 1.7; /* Increased line height for better readability */
+  max-width: 900px; /* Slightly larger width for text */
+  margin: 0 auto 30px auto; /* Center horizontally with more space at the bottom */
+  padding: 15px 25px; /* Add more padding around the text */
+  background-color: #f4f9f4; /* Light background color to make it stand out */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Slightly larger shadow for more emphasis */
 }
 
 /* Optional: Hover effect for interactivity */
 .educational-video-text p {
-  transition: transform 0.3s ease, color 0.3s ease;  /* Smooth transition effect */
+  transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition effect */
 }
 
 .educational-video-text p:hover {
-  transform: scale(1.05);  /* Slightly enlarge the text on hover */
-  color: #94BF73;  /* Change color on hover */
+  transform: scale(1.05); /* Slightly enlarge the text on hover */
+  color: #94bf73; /* Change color on hover */
 }
 
 /* Responsive Typography for Mobile */
 @media (max-width: 480px) {
   .section-header h2 {
-      font-size: 26px;  /* Smaller font size for mobile */
+    font-size: 26px; /* Smaller font size for mobile */
   }
 
   .educational-video-text {
-      font-size: 16px;  /* Smaller text for mobile */
-      padding: 10px 15px;  /* Less padding on mobile */
-      max-width: 100%;  /* Ensure text block uses full width */
+    font-size: 16px; /* Smaller text for mobile */
+    padding: 10px 15px; /* Less padding on mobile */
+    max-width: 100%; /* Ensure text block uses full width */
   }
 }
 /*  ____________________Join the Movement Section Styles - Starts Here ____________________ */
@@ -486,13 +484,13 @@
 
 /* Underline effect for the header */
 .join-movement-text h2::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -5px;
   left: 0;
   width: 100%;
   height: 3px;
-  background-color: #94BF73; /* Underline color */
+  background-color: #94bf73; /* Underline color */
 }
 
 /* Paragraph and Highlight Styling */
@@ -508,7 +506,7 @@
   transition: color 0.3s ease, transform 0.3s ease;
 }
 .highlight:hover {
-  color: #94BF73;
+  color: #94bf73;
   transform: scale(1.1);
 }
 
@@ -523,10 +521,11 @@
   cursor: pointer;
   border-radius: 8px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 .join-movement-btn:hover {
-  background-color: #94BF73;
+  background-color: #94bf73;
   transform: scale(1.05);
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.25);
 }
@@ -534,17 +533,17 @@
 /* Optional: Make the layout responsive for smaller screens */
 @media (max-width: 768px) {
   .join-movement-content {
-      flex-direction: column;
-      text-align: center;
+    flex-direction: column;
+    text-align: center;
   }
 
   .join-movement-text {
-      padding-left: 0;
-      padding-top: 20px;
+    padding-left: 0;
+    padding-top: 20px;
   }
 
   .join-movement-image img {
-      height: 40vh; /* Adjust image height on smaller screens */
+    height: 40vh; /* Adjust image height on smaller screens */
   }
 }
 
@@ -568,13 +567,13 @@
 
 /* Underline effect for the header */
 .section-header h2::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -5px;
   left: 0;
   width: 100%;
   height: 3px;
-  background-color: #94BF73; /* Underline color */
+  background-color: #94bf73; /* Underline color */
 }
 
 /* Recycle Bins Section Styling */
@@ -598,12 +597,12 @@
 /* Color Coding for Specific Bins */
 .general-waste {
   font-weight: bold;
-  color: #5a5a5a; /* Grey or Black color for General Waste Bin */
+  color: #b3b3b3; /* Grey or Black color for General Waste Bin */
 }
 
 .recycle-bin {
   font-weight: bold;
-  color: #1e90ff; /* Blue color for Recycle Bin */
+  color: #638baf; /* Blue color for Recycle Bin */
 }
 
 .compost-bin {
@@ -643,17 +642,17 @@
 
 /* Individual Card Colors */
 .general-waste-card {
-  background-color: #5a5a5a; /* Grey background */
+  background-color: #b3b3b3; /* Grey background */
   color: #ffffff;
 }
 
 .recycle-bin {
-  background-color: #1e90ff; /* Blue background */
+  background-color: #638baf; /* Blue background */
   color: #ffffff;
 }
 
 .compost-bin {
-  background-color: #2b8a3e; /* Green background */
+  background-color: #94BF73; /* Green background */
   color: #ffffff;
 }
 
@@ -716,13 +715,13 @@
 
 /* Underline effect for the header */
 .section-header h2::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -5px;
   left: 0;
   width: 100%;
   height: 3px;
-  background-color: #94BF73;
+  background-color: #94bf73;
 }
 
 /* Styling for overall content layout */

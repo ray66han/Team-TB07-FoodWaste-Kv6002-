@@ -140,12 +140,14 @@ const FridgeList = ({ onItemSelected, onStatusChange }) => {
           <td>£{item.price}</td>
           <td>{item.quantity}</td>
           <td>
+          <label className={`custom-checkbox ${isExpired ? "disabled" : ""}`}>
             <input
               type="checkbox"
               checked={item.status === true}
               onChange={() => handleStatusChange(item._id, item.status)}
               disabled={isExpired}
             />
+            </label>
           </td>
           <td>
           <button onClick={() => handleEditButtonClick(item)} disabled={isExpired}  className="edit-button">

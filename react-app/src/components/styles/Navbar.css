@@ -1,5 +1,8 @@
 .navbar {
   display: flex;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
@@ -28,13 +31,13 @@
 
 .nav-link {
   font-size: 1.2em;
-  color: #94BF73;
+  color: #94bf73;
   text-decoration: none;
   margin-right: 20px;
 }
 
 .nav-link:hover {
-  text-decoration: underline;
+  color: #ff6000;
 }
 
 .user-settings {
@@ -68,4 +71,9 @@
   justify-content: center;
   margin-top: 10px;
   padding: 0;
+}
+
+.settings-btn:hover {
+  color: #ff6000;
+  background-color: transparent;
 }
