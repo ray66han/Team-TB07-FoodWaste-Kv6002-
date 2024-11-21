@@ -5,16 +5,14 @@
   background-color: #fff;
   padding: 10px 20px;
   border-bottom: 1px solid #ddd;
-}
-
-.navbar-logo {
-  display: flex;
-  align-items: center;
+  height: 8vh;  /* Fixed navbar height */
 }
 
 .logo {
-  width: 40px;
-  margin-right: 10px;
+  height: auto; 
+  width: 35%;  /* Fixed width of the logo */
+  object-fit: contain; /* Ensures logo fits within the given dimensions */
+  margin-right: 10px;  /* Space between the logo and other navbar items */
 }
 
 .app-name {

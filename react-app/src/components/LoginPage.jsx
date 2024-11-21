@@ -47,7 +47,7 @@ function LoginPage() {
           />
         </div>
         <div className="options">
-          <a href="#" className="forgot-password">
+          <a href="/forgotPassword" className="forgot-password">
             Forgot Password?
           </a>
         </div>

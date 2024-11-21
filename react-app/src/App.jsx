@@ -7,6 +7,7 @@ import LoginPage from "./components/LoginPage";
 import SettingsPage from "./components/SettingsPage"; 
 import Notifications from "./components/Notifications"; 
 import RegisterPage from "./components/RegisterPage"; 
+import ForgotPasswordPage from "./components/ForgotPasswordPage"; 
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/register" element={<RegisterPage />} />
+        <Route path="/forgotPassword" element={<ForgotPasswordPage />} />
       </Routes>
     </Router>
   );
