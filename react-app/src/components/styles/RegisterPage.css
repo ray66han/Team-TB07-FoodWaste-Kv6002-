@@ -9,7 +9,6 @@
     justify-content: center;
     align-items: center;
     color: white;
-    font-family: Arial, sans-serif;
     flex-direction: column; /* Ensures form and footer are in a column layout */
   }
   

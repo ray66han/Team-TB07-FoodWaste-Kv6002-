@@ -26,7 +26,7 @@
   }
   
   .banner-section {
-    background-color: #2e8b57;  /* Banner - Soft green background */
+    background-color: #94BF73;  /* Banner - Soft green background */
     padding: 20px;
     text-align: center;
     border-radius: 8px;
@@ -122,7 +122,7 @@
     color: #2d3e50;
     background-color: #eaf7f3;
     padding: 1rem;
-    border-left: 5px solid #2e8b57;
+    border-left: 5px solid #94BF73;
     margin-bottom: 1.2rem;
     max-width: 750px;
     margin-left: auto;
@@ -213,7 +213,7 @@
   }
   
   .food-waste-impact-text a {
-    color: #2e8b57;
+    color: #94BF73;
     text-decoration: none;
   }
   
