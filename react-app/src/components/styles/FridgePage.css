@@ -29,19 +29,6 @@
   width: 30%;
 }
 
-.side-info h3 {
-  color: #8fc982;
-  font-weight: bold;
-}
-
-.saved-info,
-.wasted-info {
-  background-color: #f0f0f0;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
 .tips-section {
   background-color: #f0f0f0;
   padding: 1rem;

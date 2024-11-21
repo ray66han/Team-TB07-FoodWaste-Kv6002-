@@ -5,6 +5,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const FridgeItem = require("./models/FridgeItem");
+const cron = require("node-cron");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -143,7 +144,7 @@ app.get("/tips/:category", (req, res) => {
 // PUT route to update fridge items
 app.put("/items/:id", async (req, res) => {
   const { id } = req.params;
-  const { name, expiryDate, price, quantity, category } = req.body;
+  const { name, expiryDate, price, quantity, category, status } = req.body;
 
   const today = new Date();
   const inputDate = new Date(expiryDate);
@@ -152,11 +153,7 @@ app.put("/items/:id", async (req, res) => {
   if (name && !/^[a-zA-Z\s]+$/.test(name)) {
     return res.status(400).json({ error: "Invalid name format" });
   }
-  if (
-    expiryDate &&
-    isNaN(new Date(expiryDate).getTime()) &&
-    inputDate < today
-  ) {
+  if (expiryDate && (isNaN(inputDate.getTime()) || inputDate < today)) {
     return res.status(400).json({ error: "Invalid expiry date" });
   }
   if (price !== undefined && (isNaN(price) || price <= 0)) {
@@ -165,6 +162,16 @@ app.put("/items/:id", async (req, res) => {
   if (quantity !== undefined && (isNaN(quantity) || quantity <= 0)) {
     return res.status(400).json({ error: "Invalid quantity" });
   }
+  const validCategories = [
+    "Dairy",
+    "Meat",
+    "Vegetables",
+    "Fruits",
+    "Beverages",
+    "Leftovers",
+    "Baked Goods",
+    "Miscellaneous",
+  ];
   if (category && !validCategories.includes(category)) {
     return res.status(400).json({
       error: `Invalid category. Choose one of: ${validCategories.join(", ")}`,
@@ -172,11 +179,18 @@ app.put("/items/:id", async (req, res) => {
   }
 
   try {
-    const updatedItem = await FridgeItem.findByIdAndUpdate(
-      id,
-      { name, expiryDate, price, quantity, category },
-      { new: true }
-    );
+    // Build an update object dynamically
+    const updateFields = {};
+    if (name) updateFields.name = name;
+    if (expiryDate) updateFields.expiryDate = expiryDate;
+    if (price !== undefined) updateFields.price = price;
+    if (quantity !== undefined) updateFields.quantity = quantity;
+    if (category) updateFields.category = category;
+    if (status !== undefined) updateFields.status = status;
+
+    const updatedItem = await FridgeItem.findByIdAndUpdate(id, updateFields, {
+      new: true,
+    });
 
     if (!updatedItem) {
       return res.status(404).json({ error: "Item not found" });
@@ -198,6 +212,80 @@ app.delete("/items/:id", async (req, res) => {
     res.status(200).json({ message: "Item deleted successfully" });
   } catch (error) {
     res.status(500).json({ error: "Failed to delete item" });
+  }
+});
+
+app.get("/savings-stats", async (req, res) => {
+  console.log("Starting /savings-stats endpoint");
+
+  try {
+    // Start of the current month
+    const currentDate = new Date();
+    const startOfMonth = new Date(
+      currentDate.getFullYear(),
+      currentDate.getMonth(),
+      1
+    );
+    console.log("Start of month:", startOfMonth);
+
+    // Retrieve items added within the current month
+    const items = await FridgeItem.find({
+      expiryDate: { $gte: startOfMonth.toISOString() },
+    });
+    console.log("Items retrieved from database:", items);
+
+    let savedMoney = 0;
+    let wastedMoney = 0;
+    let itemsWasted = 0;
+    let soonToExpire = 0;
+
+    items.forEach((item) => {
+      const expiryDate = new Date(item.expiryDate); // Convert expiryDate to Date object
+      console.log(
+        `Processing item: ${item.name}, Status: ${item.status}, Expiry Date: ${expiryDate}`
+      );
+
+      if (item.status === true && expiryDate >= currentDate) {
+        // Item used before expiry
+        savedMoney += item.price * item.quantity;
+      } else if (item.status === false && expiryDate < currentDate) {
+        // Item expired and not used
+        wastedMoney += item.price * item.quantity;
+        itemsWasted += 1;
+      }
+
+      // Soon-to-expire items
+      const daysToExpiry = (expiryDate - currentDate) / (1000 * 60 * 60 * 24);
+      if (daysToExpiry > 0 && daysToExpiry <= 3 && item.status === false) {
+        soonToExpire += 1;
+      }
+    });
+
+    console.log("Final calculated stats:", {
+      savedMoney,
+      wastedMoney,
+      itemsWasted,
+      soonToExpire,
+    });
+
+    res.json({ savedMoney, wastedMoney, itemsWasted, soonToExpire });
+  } catch (error) {
+    console.error("Error in /savings-stats endpoint:", error);
+    res.status(500).json({ error: "Error calculating savings stats" });
+  }
+});
+
+// Scheduled task to clear items at the beginning of each month
+cron.schedule("0 0 1 * *", async () => {
+  try {
+    await FridgeItem.deleteMany({
+      expiryDate: {
+        $lt: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
+      },
+    });
+    console.log("Old items cleared at the start of the month");
+  } catch (error) {
+    console.error("Failed to clear old items:", error);
   }
 });
 
