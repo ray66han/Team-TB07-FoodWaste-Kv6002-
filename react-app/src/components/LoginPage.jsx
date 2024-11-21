@@ -47,7 +47,7 @@ function LoginPage() {
           />
         </div>
         <div className="options">
-          <a href="#" className="forgot-password">
+          <a href="/forgotPassword" className="forgot-password">
             Forgot Password?
           </a>
         </div>
@@ -55,7 +55,7 @@ function LoginPage() {
           Login
         </button>
         <div className="register">
-          Don’t have an account? <a href="#">Register</a>
+          Don’t have an account? <a href="/register">Register</a>
         </div>
       </div>
     </div>
