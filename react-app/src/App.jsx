@@ -6,6 +6,7 @@ import FridgePage from "./components/FridgePage";
 import LoginPage from "./components/LoginPage";
 import SettingsPage from "./components/SettingsPage"; 
 import Notifications from "./components/Notifications"; 
+import RegisterPage from "./components/RegisterPage"; 
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Route path="/fridge" element={<FridgePage items={items} />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/notifications" element={<Notifications />} />
+        <Route path="/register" element={<RegisterPage />} />
       </Routes>
     </Router>
   );

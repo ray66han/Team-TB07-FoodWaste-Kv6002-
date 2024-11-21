@@ -1,0 +1,83 @@
+/* RegisterPage.css */
+
+/* Set the background image and ensure it takes full screen height */
+.register-page {
+    background: url('/src/assets/images/Register/RegisterImage.jpg') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 86vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    flex-direction: column; /* Ensures form and footer are in a column layout */
+  }
+  
+  /* Form container: Set proper height, and align the form in the center */
+  .register-container {
+    background: rgba(0, 0, 0, 0.6); /* Transparent black background */
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Align form elements vertically */
+    justify-content: center;
+    min-height: 400px; /* Adjust the height to ensure the form is visible */
+  }
+  
+  /* Form Title */
+  .register-container h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+  }
+  
+  /* Style the form inputs */
+  .register-container input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+    color: #333;
+  }
+  
+  .register-container input::placeholder {
+    color: #bbb;
+  }
+  
+  /* Register button style */
+  .register-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #F87A53; /* Button background color */
+    border: none;
+    color: white;
+    font-size: 1.1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .register-btn:hover {
+    background-color: #e65c3c; /* Darker shade of the button color on hover */
+  }
+  
+  /* Login link style */
+  .login-link {
+    margin-top: 20px;
+    font-size: 1em;
+  }
+  
+  .login-link a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .login-link a:hover {
+    text-decoration: underline;
+  }
+ 
