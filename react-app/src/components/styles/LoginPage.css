@@ -1,0 +1,118 @@
+/* Background container */
+.login-container {
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url('/src/assets/images/Login/loginImage.jpg'); /* Replace with your background image */
+    background-size: cover;
+    background-position: center;
+    height: 86vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    color: white;
+  }
+  
+  /* Login box */
+  .login-box {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    width: 350px;
+    backdrop-filter: blur(10px);
+  }
+  
+  /* Welcome message */
+  .login-box h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .login-box p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #ddd;
+  }
+  
+  /* Form fields */
+  .form-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+  }
+  
+  input:focus {
+    border-color: #f87a53;
+  }
+  
+  /* Options */
+  .options {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+  
+  .forgot-password {
+    font-size: 12px;
+    color: #f87a53;
+    text-decoration: none;
+  }
+  
+  .forgot-password:hover {
+    text-decoration: underline;
+  }
+  
+  /* Login button */
+  .login-button {
+    background-color: #f87a53;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+  }
+  
+  .login-button:hover {
+    background-color: #e46742;
+  }
+  
+  /* Register section */
+  .register {
+    margin-top: 20px;
+    font-size: 14px;
+    color: white;
+  }
+  
+  .register a {
+    color: #f87a53;
+    text-decoration: none;
+  }
+  
+  .register a:hover {
+    text-decoration: underline;
+  }
