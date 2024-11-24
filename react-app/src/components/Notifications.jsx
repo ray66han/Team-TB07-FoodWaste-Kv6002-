@@ -11,6 +11,7 @@ const Notifications = () => {
     const fetchNotifications = async () => {
       try {
         const response = await axios.get('/notifications');
+        console.log('Fetched notifications:', response.data);
         setItems(response.data);
         setLoading(false);
       } catch (error) {
