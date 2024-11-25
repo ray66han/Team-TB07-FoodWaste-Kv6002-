@@ -2,32 +2,72 @@
 
 This repository will be used by TB07 team (KV6002) regarding to build a Food Waste system.
 
-Pre requesits:
 
-# Install Node.js
+# Prerequisites
+Ensure you have the following installed on your system:
+
+Node.js 
 
 #download and install Node.js
+'''choco install nodejs-lts --version="20.18.0"'''
 
-choco install nodejs-lts --version="20.18.0"
+npm (comes with Node.js)
+Git (for cloning the repository)
 
-#verifies the right Node.js version is in the environment
+# Project Structure
+The project is divided into two parts:
 
-node -v # should print `20`
+Backend: Node.js/Express server (located in the backend/ folder).
+Frontend: React app (located in the react-app/ folder).
 
-#verifies the right npm version is in the environment
+# Installation and Setup
+Follow the steps below to set up and run the project locally:
 
-npm -v # should print `10.8.2`
+1. Clone the Repository
 
-# Go to project directory and run react app
+git clone https://github.com/your-username/Team-TB07-FoodWaste-Kv6002.git
 
-#cd into cloned project
+//replace 'your-username' with your actual username
 
-cd Team-TB07-FoodWaste-Kv6002-\react-app
+cd Team-TB07-FoodWaste-Kv6002
 
-#install react using vite
+2. Set Up the Backend
+Navigate to the backend/ folder:
+
+cd backend
+
+Install dependencies:
 
 npm install
+Create a .env file in the backend/ folder and configure the following variables:
 
-#run the project
+MONGODB_URI=<your-mongodb-connection-string>
+PORT=5000
+Note: Replace <your-mongodb-connection-string> with your MongoDB URI.
 
-npm run dev # you should be able to view the web app link locally
+Start the backend server:
+
+node index.js
+
+3. Set Up the Frontend
+Navigate to the react-app/ folder:
+
+ 
+cd ../react-app
+Install dependencies:
+
+ 
+npm install
+Start the React development server:
+
+ 
+npm run dev
+Open your browser and navigate to the URL displayed in the terminal (typically http://localhost:3000).
+
+
+Alternatively once installed and run once you can run both the front end and and backend at once:
+
+cd ..
+npm run start
+
+
