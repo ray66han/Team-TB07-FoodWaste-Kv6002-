@@ -1,3 +1,10 @@
+## Running the Development Server
+
+To start the development server, use the following command:
+
+```bash
+npm run dev
+```
 # Team-TB07-FoodWaste-Kv6002-
 
 This repository will be used by TB07 team (KV6002) regarding to build a Food Waste system.
