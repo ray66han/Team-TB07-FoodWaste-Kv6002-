@@ -1,10 +1,3 @@
-## Running the Development Server
-
-To start the development server, use the following command:
-
-```bash
-npm run dev
-```
 # Team-TB07-FoodWaste-Kv6002-
 
 This repository will be used by TB07 team (KV6002) regarding to build a Food Waste system.
@@ -17,7 +10,9 @@ Node.js
 
 #download and install Node.js
 
-```choco install nodejs-lts --version="20.18.0"```
+```bash
+choco install nodejs-lts --version="20.18.0"
+```
 
 npm (comes with Node.js)
 Git (for cloning the repository)
