@@ -9,6 +9,7 @@ Ensure you have the following installed on your system:
 Node.js 
 
 #download and install Node.js
+
 '''choco install nodejs-lts --version="20.18.0"'''
 
 npm (comes with Node.js)
@@ -54,20 +55,24 @@ Navigate to the react-app/ folder:
 
  
 cd ../react-app
+
 Install dependencies:
 
  
 npm install
+
 Start the React development server:
 
  
 npm run dev
+
 Open your browser and navigate to the URL displayed in the terminal (typically http://localhost:3000).
 
 
 Alternatively once installed and run once you can run both the front end and and backend at once:
 
 cd ..
+
 npm run start
 
 
