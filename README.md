@@ -10,7 +10,7 @@ Node.js
 
 #download and install Node.js
 
-'''choco install nodejs-lts --version="20.18.0"'''
+```choco install nodejs-lts --version="20.18.0"```
 
 npm (comes with Node.js)
 Git (for cloning the repository)
