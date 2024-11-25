@@ -1,6 +1,8 @@
-# Node.js / Express
+# Node.js / Express (Backend)
 node_modules/
+backend/node_modules/
 .env
+*.env.*
 .DS_Store
 logs/
 *.log
@@ -15,26 +17,35 @@ yarn-error.log*
 /tmp
 dist/
 
-# React / Vite
-node_modules/
-dist/
-*.log
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+# React / Vite (Frontend)
+react-app/node_modules/
+react-app/dist/
+react-app/*.log
+react-app/.env.local
+react-app/.env.development.local
+react-app/.env.test.local
+react-app/.env.production.local
+react-app/.cache/
+react-app/.vscode/
+react-app/.idea/
+
+# Build and Temp Files
+build/
+tmp/
 .cache/
-.vscode/
-.idea/
-
-
-# Windows
-Thumbs.db
-desktop.ini
-
-# Others
-*.sublime-workspace
 *.swp
 *.bak
 *.tmp
-*.env.*
+
+# System Files (Windows / MacOS)
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# IDE Files
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Miscellaneous
+*.seed

@@ -1,0 +1,15 @@
+{
+  "name": "team-tb07-foodwaste-kv6002-",
+  "version": "1.0.0",
+  "description": "This repository will be used by TB07 team (KV6002) regarding to build a Food Waste system.",
+  "main": "playground-1.mongodb.js",
+  "scripts": {
+    "start": "concurrently \"cd backend && node index.js\" \"cd react-app && npm run dev\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
