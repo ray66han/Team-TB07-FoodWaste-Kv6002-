@@ -1,69 +1,62 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const Notifications = () => {
-  const [items, setItems] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+function NotificationsPage() {
+  const [preference, setPreference] = useState(3); // Default: Notify 3 days before expiry
+  const [expiringItems, setExpiringItems] = useState([]);
 
-  // Fetch notifications from backend
+  // Fetch items close to expiry
   useEffect(() => {
-    const fetchNotifications = async () => {
+    const fetchExpiringItems = async () => {
       try {
-        const response = await axios.get('/notifications');
-        console.log('Fetched notifications:', response.data);
-        setItems(response.data);
-        setLoading(false);
+        const response = await axios.get(`/api/notifications?days=${preference}`);
+        setExpiringItems(response.data);
       } catch (error) {
-        console.error('Error fetching notifications:', error);
-        setError('Failed to load notifications');
-        setLoading(false);
+        console.error("Error fetching expiring items:", error);
       }
     };
+    fetchExpiringItems();
+  }, [preference]);
 
-    fetchNotifications();
-  }, []);
-
-  // Update notification preferences
-  const updateNotification = async (id, status) => {
+  // Save notification preference
+  const savePreference = async () => {
     try {
-      const response = await axios.post('/notifications', { id, status });
-      setItems((prevItems) =>
-        prevItems.map((item) =>
-          item._id === id ? { ...item, status: response.data.status } : item
-        )
-      );
+      await axios.post("/api/notifications/preference", { days: preference });
+      alert("Notification preference saved!");
     } catch (error) {
-      console.error('Error updating notification:', error);
-      setError('Failed to update notification preferences');
+      console.error("Error saving preference:", error);
     }
   };
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>{error}</div>;
-
   return (
-    <div className="notifications">
-      <h2>Notifications</h2>
+    <div>
+      <h1>Notifications</h1>
+      <div>
+        <label>Notify me X days before expiry:</label>
+        <select value={preference} onChange={(e) => setPreference(Number(e.target.value))}>
+          {[1, 2, 3, 5, 7].map((day) => (
+            <option key={day} value={day}>
+              {day} days
+            </option>
+          ))}
+        </select>
+        <button onClick={savePreference}>Save</button>
+      </div>
+      <h2>Expiring Items</h2>
       <ul>
-        {items.map((item) => (
-          <li key={item._id}>
-            <p>
-              {item.name} - Expires on: {item.expiryDate}
-            </p>
-            <label>
-              Enable Notifications:
-              <input
-                type="checkbox"
-                checked={item.status}
-                onChange={() => updateNotification(item._id, !item.status)}
-              />
-            </label>
-          </li>
-        ))}
+        {expiringItems.length > 0 ? (
+          expiringItems.map((item) => (
+            <li key={item._id}>
+              {item.name} - Expires on {new Date(item.expiryDate).toLocaleDateString()}
+            </li>
+          ))
+        ) : (
+          <p>No items expiring soon.</p>
+        )}
       </ul>
     </div>
   );
-};
+}
 
-export default Notifications;
+export default NotificationsPage;
+

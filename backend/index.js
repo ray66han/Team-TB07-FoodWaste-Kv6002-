@@ -205,33 +205,25 @@ app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
 
-// Notifications route to fetch items with notifications
-app.get('/notifications', async (req, res) => {
+// Route to get items close to expiry based on user preference
+app.get("/notifications", async (req, res) => {
+  const days = parseInt(req.query.days, 10) || 3; // Default to 3 days if not provided
+  const targetDate = new Date();
+  targetDate.setDate(targetDate.getDate() + days);
+
   try {
-    const items = await FridgeItem.find({}, { name: 1, expiryDate: 1, status: 1 });
+    const items = await FridgeItem.find({ expiryDate: { $lte: targetDate } });
     res.status(200).json(items);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch notifications' });
+    console.error("Error fetching expiring items:", error);
+    res.status(500).json({ error: "Failed to fetch notifications" });
   }
 });
 
-// Update notification preferences for a fridge item
-app.post('/notifications', async (req, res) => {
-  const { id, status } = req.body;
-
-  try {
-    const updatedItem = await FridgeItem.findByIdAndUpdate(
-      id,
-      { status },
-      { new: true }
-    );
-
-    if (!updatedItem) {
-      return res.status(404).json({ error: 'Item not found' });
-    }
-
-    res.status(200).json(updatedItem);
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to update notification preferences' });
-  }
+// Mock route to save global notification preferences
+app.post("/notifications/preference", (req, res) => {
+  const { days } = req.body;
+  console.log(`Notification preference set to ${days} days.`);
+  res.status(200).json({ message: "Notification preference saved." });
 });
+
