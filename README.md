@@ -15,6 +15,7 @@ choco install nodejs-lts --version="20.18.0"
 ```
 
 npm (comes with Node.js)
+
 Git (for cloning the repository)
 
 # Project Structure
@@ -31,15 +32,15 @@ Follow the steps below to set up and run the project locally:
 ```bash
 git clone https://github.com/your-username/Team-TB07-FoodWaste-Kv6002.git
 ```
-//replace 'your-username' with your actual username
+Note: replace 'your-username' with your actual username
 
-```bash
-cd Team-TB07-FoodWaste-Kv6002
-```
 
 2. Set Up the Backend
 Navigate to the backend/ folder:
 
+```bash
+cd Team-TB07-FoodWaste-Kv6002
+```
 ```bash
 cd backend
 ```
@@ -56,7 +57,11 @@ Create a .env file in the backend folder and configure the following variables:
 MONGODB_URI=<your-mongodb-connection-string>
 PORT=5000
 ```
-Note: Replace <your-mongodb-connection-string> with your MongoDB URI.
+Note: Replace <your-mongodb-connection-string> with your MongoDB URI. 
+Here is a guest URI:
+```bash
+MONGODB_URI=mongodb+srv://Guest:ylweTuQngASVPIMh@tb07.42zr7.mongodb.net/
+```
 
 Start the backend server:
 
@@ -81,7 +86,7 @@ Start the React development server:
 ```bash 
 npm run dev
 ```
-Open your browser and navigate to the URL displayed in the terminal (typically http://localhost:3000).
+Open your browser and navigate to the URL displayed in the terminal (typically http://localhost:5173).
 
 
 Alternatively once installed and run once you can run both the front end and backend at once:
