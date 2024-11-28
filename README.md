@@ -34,7 +34,8 @@ git clone https://github.com/your-username/Team-TB07-FoodWaste-Kv6002.git
 ```
 Note: replace 'your-username' with your actual username
 
-Install MongoDB locally by following the [installation guide]([url](https://www.mongodb.com/docs/manual/installation/)).
+Install MongoDB locally by following the [installation guide](https://www.mongodb.com/docs/manual/installation/).
+
 After installation, start MongoDB locally by running the following command in your terminal:
 ```bash
 mongod
