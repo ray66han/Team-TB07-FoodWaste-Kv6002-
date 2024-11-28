@@ -7,12 +7,12 @@
   align-items: center;
   background-color: white;
   padding: 10px 20px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 2px solid #94bf73;
   height: 8vh;
 }
 
-.bg-light {
-  background-color: red;
+.navbar.bg-light {
+  background-color: white !important;
 }
 
 .logo {
@@ -24,7 +24,7 @@
 
 .app-name {
   font-size: 1.5em;
-  color: #4caf50;
+  color: #94bf73;
   font-weight: bold;
 }
 
