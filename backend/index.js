@@ -289,6 +289,40 @@ cron.schedule("0 0 1 * *", async () => {
   }
 });
 
+app.get("/api/expiring-items", async (req, res) => {
+  const { timeframe } = req.query;
+  const currentDate = new Date();
+  let endDate;
+
+  // Determine the end date based on the selected time frame
+  if (timeframe === "daily") {
+    endDate = new Date(currentDate);
+    endDate.setDate(currentDate.getDate() + 1);
+  } else if (timeframe === "weekly") {
+    endDate = new Date(currentDate);
+    endDate.setDate(currentDate.getDate() + 7);
+  } else if (timeframe === "monthly") {
+    endDate = new Date(currentDate);
+    endDate.setMonth(currentDate.getMonth() + 1);
+  } else {
+    return res.status(400).json({ error: "Invalid timeframe" });
+  }
+
+  try {
+    // Fetch items with expiry dates within the specified range
+    const expiringItems = await FridgeItem.find({
+      expiryDate: {
+        $gte: currentDate.toISOString(),
+        $lt: endDate.toISOString(),
+      },
+    });
+    res.json({ items: expiringItems });
+  } catch (error) {
+    console.error("Error fetching expiring items:", error);
+    res.status(500).json({ error: "Failed to fetch expiring items" });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

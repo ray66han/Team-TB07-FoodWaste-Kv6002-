@@ -1,12 +1,57 @@
-import React, { useState } from 'react';
-import './styles/Notifications.css';
+import React, { useState, useEffect } from "react";
+import "./styles/Notifications.css";
 
 const Notifications = ({ onClose }) => {
-  const [preference, setPreference] = useState('Daily');
+  const [preference, setPreference] = useState("Daily"); // Default notification preference
+  const [expiringItems, setExpiringItems] = useState([]); // State to store fetched items
+  const [loading, setLoading] = useState(false);
 
-  const handleSave = () => {
-    console.log(`Preference saved: ${preference}`);
-    onClose(); // Close the modal after saving
+  // Fetch expiring items
+  const fetchExpiringItems = async (timeframe) => {
+    setLoading(true);
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/expiring-items?timeframe=${timeframe.toLowerCase()}`
+      );
+      const data = await response.json();
+      setExpiringItems(data.items);
+    } catch (error) {
+      console.error("Failed to fetch expiring items:", error);
+    }
+    setLoading(false);
+  };
+
+  // Load preference and fetch expiring items when modal opens
+  useEffect(() => {
+    const loadPreferenceAndItems = async () => {
+      try {
+        const savedPreference = localStorage.getItem("notificationPreference");
+        const preferenceToUse = savedPreference || "Daily";
+        setPreference(preferenceToUse); // Update preference state
+        await fetchExpiringItems(preferenceToUse); // Fetch items based on loaded preference
+      } catch (error) {
+        console.error("Failed to load preference or items:", error);
+      }
+    };
+
+    loadPreferenceAndItems();
+  }, []); // Run only when the modal is mounted
+
+  // Fetch expiring items whenever the preference changes
+  useEffect(() => {
+    fetchExpiringItems(preference);
+  }, [preference]);
+
+  // Save preference to localStorage and refetch expiring items
+  const handleSave = async () => {
+    try {
+      localStorage.setItem("notificationPreference", preference);
+      console.log(`Preference saved: ${preference}`);
+      await fetchExpiringItems(preference); // Refetch items based on the saved preference
+      onClose(); // Close the modal after saving
+    } catch (error) {
+      console.error("Failed to save preference:", error);
+    }
   };
 
   return (
@@ -19,10 +64,25 @@ const Notifications = ({ onClose }) => {
           &times;
         </button>
         <h2 className="modal-title">Notifications</h2>
-        <h3 className="subheading"><b>Expired Fridge Items</b></h3>
-        <p>Milk expires by 27-11-2024</p>
-        <p>Egg expires by 29-11-2024</p>
-        <h3 className="subheading"><b>Notification Preference</b></h3>
+        <h3 className="subheading">
+          <b>Expiring Fridge Items</b>
+        </h3>
+        {loading ? (
+          <p>Loading...</p>
+        ) : expiringItems.length > 0 ? (
+          <ul>
+            {expiringItems.map((item) => (
+              <li key={item._id}>
+                {item.name} expires by {item.expiryDate}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No items expiring within the selected time frame.</p>
+        )}
+        <h3 className="subheading">
+          <b>Notification Preference</b>
+        </h3>
         <select
           value={preference}
           onChange={(e) => setPreference(e.target.value)}

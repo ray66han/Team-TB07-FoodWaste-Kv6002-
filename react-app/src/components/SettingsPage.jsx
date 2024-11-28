@@ -5,7 +5,7 @@ import UpdateProfile from './UpdateProfile';
 
 const SettingsPage = ({ show }) => {
   const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
-  const [isUpdateProfileOpen, setIsUpdateProfileOpen] = useState(false);
+  const [isUpdateProfileOpen, setIsUpdateProfileOpen] = useState(false); 
 
   if (!show) return null;
 
