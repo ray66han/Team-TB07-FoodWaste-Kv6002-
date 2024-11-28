@@ -39,7 +39,7 @@ const FridgeList = ({ onItemSelected, onStatusChange }) => {
   };
 
   const confirmDelete = async () => {
-    await fetch(`http://localhost:5000/items/${deleteItemId}`, { method: "DELETE" });
+    await fetch(`http://localhost:{5000}/items/${deleteItemId}`, { method: "DELETE" });
     setItems(items.filter((item) => item._id !== deleteItemId));
     setShowDeleteConfirm(false);
   };

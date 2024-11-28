@@ -1,5 +1,5 @@
-// Load environment variables
-require("dotenv").config();
+const dotenv = require("dotenv");
+dotenv.config();
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -9,6 +9,14 @@ const cron = require("node-cron");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(cors());
