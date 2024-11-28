@@ -21,3 +21,25 @@
   text-decoration: none;
   color: black;
 }
+/* Unified button styles for all action buttons */
+ /* Unified button styles for all action buttons */
+.action-btn {
+  background: none;
+  border: none;
+  color: #333; /* Darker color for better visibility */
+  font-size: 16px; /* Slightly larger text */
+  font-weight: bold; /* Bold text by default */
+  cursor: pointer;
+  text-align: left;
+  padding: 8px 0;
+  display: block;
+  width: 100%;
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.action-btn:hover {
+  color: white; /* Blue color for hover effect */
+  font-weight: bolder; /* Make text even bolder on hover */
+  text-align: center; /* Center align the text */
+  transform: scale(1.05); /* Slightly enlarge the text for emphasis */
+}
