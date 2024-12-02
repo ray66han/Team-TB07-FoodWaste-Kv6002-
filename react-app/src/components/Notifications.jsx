@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./styles/Notifications.css";
+import config from './config.json';
 
 const Notifications = ({ onClose }) => {
+  const apiUrl = config.API_URL;
   const [preference, setPreference] = useState("Daily"); // Default notification preference
   const [expiringItems, setExpiringItems] = useState([]); // State to store fetched items
   const [loading, setLoading] = useState(false);
@@ -11,7 +13,7 @@ const Notifications = ({ onClose }) => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://localhost:5000/api/expiring-items?timeframe=${timeframe.toLowerCase()}`
+        `${apiUrl}/api/expiring-items?timeframe=${timeframe.toLowerCase()}`
       );
       const data = await response.json();
       setExpiringItems(data.items);

@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "./styles/FridgeForm.css";
+import config from './config.json';
+
 
 const FridgeForm = ({ editItem, onClose, onSubmit }) => {
+  const apiUrl = config.API_URL;
   const [name, setName] = useState(editItem ? editItem.name : "");
   const [expiryDate, setExpiryDate] = useState(editItem ? editItem.expiryDate : "");
   const [price, setPrice] = useState(editItem ? editItem.price : "");
@@ -28,12 +31,12 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
     const itemData = { name, expiryDate, price, quantity, category };
 
     const response = editItem
-      ? await fetch(`http://localhost:5000/items/${editItem._id}`, {
+      ? await fetch(`${apiUrl}/items/${editItem._id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(itemData),
         })
-      : await fetch("http://localhost:5000/items", {
+      : await fetch(`${apiUrl}/items`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(itemData),
