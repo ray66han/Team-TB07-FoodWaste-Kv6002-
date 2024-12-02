@@ -28,42 +28,64 @@ The project is organized into two main parts:
 Follow the steps below to set up and run the project locally:
 
 1️⃣ Clone the Repository  
-`git clone https://github.com/your-username/Team-TB07-FoodWaste-Kv6002.git`  
+```bash
+git clone https://github.com/your-username/Team-TB07-FoodWaste-Kv6002.git
+```
 📝 *Note: Replace `your-username` with your actual GitHub username.*
 
 2️⃣ Set Up the Backend  
-Navigate to the `backend/` folder:  
-`cd Team-TB07-FoodWaste-Kv6002`  
-`cd backend`  
+Navigate to the `backend/` folder: 
+```bash
+cd Team-TB07-FoodWaste-Kv6002/backend
+``` 
 
 Install dependencies:  
-`npm install`  
+```bash
+npm install
+```  
 
-Create a `.env` file in the `backend/` folder and configure the following variables:  
-`MONGODB_URI=mongodb+srv://shihanaqib:q4P2YcOCq1qQ14HA@tb07.42zr7.mongodb.net/`  
-`PORT=5000`  
+Create a `.env` file in the `backend/` folder and configure the following variables:
+```bash
+MONGODB_URI=mongodb+srv://shihanaqib:q4P2YcOCq1qQ14HA@tb07.42zr7.mongodb.net/ 
+PORT=5000
+```
 
-📝 *Note: Update the `PORT` if required. If changed, modify `react-app/src/components/config.json` accordingly:*  
-`{ "API_URL": "http://localhost:5000" }`  
+📝 *Note: Update the `PORT` if required. If changed, modify `react-app/src/components/config.json` accordingly:*
+```bash
+{ "API_URL": "http://localhost:5000" }
+```  
 
-Start the backend server:  
-`node index.js`
+Start the backend server: 
+```bash
+node index.js
+```
 
 3️⃣ Set Up the Frontend  
-Navigate to the `react-app/` folder:  
-`cd ../react-app`  
+Navigate to the `react-app/` folder: 
+```bash
+cd ../react-app
+``` 
 
-Install dependencies:  
-`npm install`  
+Install dependencies:
+```bash  
+npm install
+```  
 
-Start the React development server:  
-`npm run dev`  
+Start the React development server:
+```bash
+npm run dev
+```  
 
 Open your browser and navigate to the URL displayed in the terminal (typically `http://localhost:5173`).
 
-Alternatively, once installed and run once, you can start both the backend and frontend simultaneously:  
-`cd ..`  
-`npm run start`  
+Alternatively, once installed and run once, you can start both the backend and frontend simultaneously:
+```bash
+cd ..
+```
+
+```bash
+npm run start
+```  
 
 🎉 **Your FoodWaste System is now up and running!**
 
