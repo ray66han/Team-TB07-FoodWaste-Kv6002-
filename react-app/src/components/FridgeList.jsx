@@ -3,9 +3,11 @@ import FridgeForm from "./FridgeForm";
 import "./styles/FridgeList.css";
 import EditIcon from "../assets/icons/editing.png";
 import DeleteIcon from "../assets/icons/delete.png";
+import config from './config.json';
 
 
 const FridgeList = ({ onItemSelected, onStatusChange }) => {
+  const apiUrl = config.API_URL;
   const [items, setItems] = useState([]);
   const [showForm, setShowForm] = useState(false);
   const [editItem, setEditItem] = useState(null);
@@ -13,7 +15,7 @@ const FridgeList = ({ onItemSelected, onStatusChange }) => {
   const [deleteItemId, setDeleteItemId] = useState(null);
 
   const fetchItems = () => {
-    fetch("http://localhost:5000/items")
+    fetch(`${apiUrl}/items`)
       .then((response) => response.json())
       .then((data) => setItems(data))
       .catch((error) => console.error("Error fetching items:", error));
@@ -39,14 +41,14 @@ const FridgeList = ({ onItemSelected, onStatusChange }) => {
   };
 
   const confirmDelete = async () => {
-    await fetch(`http://localhost:{5000}/items/${deleteItemId}`, { method: "DELETE" });
+    await fetch(`${apiUrl}/items/${deleteItemId}`, { method: "DELETE" });
     setItems(items.filter((item) => item._id !== deleteItemId));
     setShowDeleteConfirm(false);
   };
 
   const handleStatusChange = async (itemId, currentStatus) => {
     try {
-      const response = await fetch(`http://localhost:5000/items/${itemId}`, {
+      const response = await fetch(`${apiUrl}/items/${itemId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status: !currentStatus }),

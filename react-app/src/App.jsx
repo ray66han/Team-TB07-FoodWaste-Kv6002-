@@ -17,7 +17,7 @@ function App() {
   const toggleSettingsDropdown = () => setShowSettings((prev) => !prev);
 
   useEffect(() => {
-    fetch("http://localhost:5000/items")
+    fetch("http://localhost:5001/items")
       .then((response) => response.json())
       .then((data) => setItems(data))
       .catch((error) => console.error("Error fetching items:", error));
