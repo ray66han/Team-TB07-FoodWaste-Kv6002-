@@ -1,106 +1,69 @@
 # Team-TB07-FoodWaste-Kv6002-
 
-This repository will be used by TB07 team (KV6002) regarding to build a Food Waste system.
+Welcome to the **FoodWaste System**! This project was developed by **Team TB07** as part of **Module KV6002**.
 
 
-# Prerequisites
-Ensure you have the following installed on your system:
+## 🔧 Prerequisites
 
-Node.js 
+Ensure the following are installed on your system:
 
-#download and install Node.js
+- **Node.js(+npm included)**  
+  Install using Chocolatey (Windows):  
+  ```bash
+  choco install nodejs-lts --version="20.18.0"
+- **Git (For cloning the repository)**
 
-```bash
-choco install nodejs-lts --version="20.18.0"
-```
+## 📂 Project Structure
 
-npm (comes with Node.js)
+The project is organized into two main parts:
 
-Git (for cloning the repository)
+- **Backend**: Node.js/Express server  
+  📁 Located in the `backend/` folder.
 
-# Project Structure
-The project is divided into two parts:
+- **Frontend**: React application  
+  📁 Located in the `react-app/` folder.
 
-Backend: Node.js/Express server (located in the backend/ folder).
-Frontend: React app (located in the react-app/ folder).
+## 🚀 Installation and Setup
 
-# Installation and Setup
 Follow the steps below to set up and run the project locally:
 
-1. Clone the Repository
+1️⃣ Clone the Repository  
+`git clone https://github.com/your-username/Team-TB07-FoodWaste-Kv6002.git`  
+📝 *Note: Replace `your-username` with your actual GitHub username.*
 
-```bash
-git clone https://github.com/your-username/Team-TB07-FoodWaste-Kv6002.git
-```
-Note: replace 'your-username' with your actual username
+2️⃣ Set Up the Backend  
+Navigate to the `backend/` folder:  
+`cd Team-TB07-FoodWaste-Kv6002`  
+`cd backend`  
 
-Install MongoDB locally by following the [installation guide](https://www.mongodb.com/docs/manual/installation/).
+Install dependencies:  
+`npm install`  
 
-After installation, start MongoDB locally by running the following command in your terminal:
-```bash
-mongod
-```
+Create a `.env` file in the `backend/` folder and configure the following variables:  
+`MONGODB_URI=mongodb+srv://shihanaqib:q4P2YcOCq1qQ14HA@tb07.42zr7.mongodb.net/`  
+`PORT=5000`  
 
-2. Set Up the Backend
-Navigate to the backend/ folder:
+📝 *Note: Update the `PORT` if required. If changed, modify `react-app/src/components/config.json` accordingly:*  
+`{ "API_URL": "http://localhost:5000" }`  
 
-```bash
-cd Team-TB07-FoodWaste-Kv6002
-```
-```bash
-cd backend
-```
+Start the backend server:  
+`node index.js`
 
-Install dependencies:
+3️⃣ Set Up the Frontend  
+Navigate to the `react-app/` folder:  
+`cd ../react-app`  
 
-```bash
-npm install
-```
+Install dependencies:  
+`npm install`  
 
-Create a .env file in the backend folder and configure the following variables:
+Start the React development server:  
+`npm run dev`  
 
-```bash
-MONGODB_URI=<your-mongodb-connection-string>
-PORT=5000
-```
-Note: Replace <your-mongodb-connection-string> with your MongoDB URI. 
-Here is a guest URI:
-```bash
-MONGODB_URI=mongodb+srv://Guest:ylweTuQngASVPIMh@tb07.42zr7.mongodb.net/
-```
+Open your browser and navigate to the URL displayed in the terminal (typically `http://localhost:5173`).
 
-Start the backend server:
+Alternatively, once installed and run once, you can start both the backend and frontend simultaneously:  
+`cd ..`  
+`npm run start`  
 
-```bash
-node index.js
-```
-
-3. Set Up the Frontend
-Navigate to the react-app/ folder:
-
-```bash 
-cd ../react-app
-```
-
-Install dependencies:
-
-```bash
-npm install
-```
-Start the React development server:
-
-```bash 
-npm run dev
-```
-Open your browser and navigate to the URL displayed in the terminal (typically http://localhost:5173).
-
-
-Alternatively once installed and run once you can run both the front end and backend at once:
-
-```bash
-cd ..
-```
-```bash
-npm run start
-```
+🎉 **Your FoodWaste System is now up and running!**
 
