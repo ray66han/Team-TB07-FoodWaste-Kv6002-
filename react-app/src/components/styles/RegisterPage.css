@@ -14,7 +14,7 @@
   
   /* Form container: Set proper height, and align the form in the center */
   .register-container {
-    background: rgba(0, 0, 0, 0.6); /* Transparent black background */
+    /* background: rgba(0, 0, 0, 0.6); Transparent black background */
     padding: 30px;
     border-radius: 10px;
     width: 100%;
