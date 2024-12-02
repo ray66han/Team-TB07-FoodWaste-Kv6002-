@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import "./styles/Savings.css";
+import config from './config.json';
 
 const Savings = ({ refresh }) => {
+  const apiUrl = config.API_URL;
   const [stats, setStats] = useState({
     savedMoney: 0,
     wastedMoney: 0,
@@ -14,7 +16,7 @@ const Savings = ({ refresh }) => {
     // console.log("Fetching savings stats due to refresh change:", refresh);
     const fetchStats = async () => {
       try {
-        const response = await fetch("http://localhost:5000/savings-stats");
+        const response = await fetch(`${apiUrl}/savings-stats`);
         if (!response.ok) throw new Error("Network response for Savings.jsx was not ok");
         const data = await response.json();
         // console.log("Fetched savings stats:", data);

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
+import config from './config.json';
 
 const Tips = ({ selectedCategory }) => {
+  const apiUrl = config.API_URL;
   const [tips, setTips] = useState([]);
 
   useEffect(() => {
     if (selectedCategory) {
-      fetch(`http://localhost:5000/tips/${selectedCategory}`)
+      fetch(`${apiUrl}/tips/${selectedCategory}`)
         .then((response) => response.json())
         .then((data) => setTips(data.tips))
         .catch((error) => console.error("Error fetching tips:", error));

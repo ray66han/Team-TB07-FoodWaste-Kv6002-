@@ -8,16 +8,18 @@ import SettingsPage from "./components/SettingsPage";
 import Notifications from "./components/Notifications"; 
 import RegisterPage from "./components/RegisterPage"; 
 import ForgotPasswordPage from "./components/ForgotPasswordPage"; 
+import config from './components/config.json';
 
 
 function App() {
+  const apiUrl = config.API_URL;
   const [items, setItems] = useState([]);
   const [showSettings, setShowSettings] = useState(false);
 
   const toggleSettingsDropdown = () => setShowSettings((prev) => !prev);
 
   useEffect(() => {
-    fetch("http://localhost:5000/items")
+    fetch(`${apiUrl}/items`)
       .then((response) => response.json())
       .then((data) => setItems(data))
       .catch((error) => console.error("Error fetching items:", error));
