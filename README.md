@@ -29,7 +29,7 @@ Follow the steps below to set up and run the project locally:
 
 1️⃣ Clone the Repository  
 ```bash
-git clone https://github.com/your-username/Team-TB07-FoodWaste-Kv6002.git
+git clone https://github.com/ray66han/Team-TB07-FoodWaste-Kv6002-.git
 ```
 📝 *Note: Replace `your-username` with your actual GitHub username.*
 
