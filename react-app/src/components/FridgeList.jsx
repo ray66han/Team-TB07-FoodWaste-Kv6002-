@@ -35,8 +35,8 @@ const FridgeList = ({ onItemSelected, onStatusChange }) => {
     setShowForm(true);
   };
 
-  const handleDeleteClick = (id) => {
-    setDeleteItemId(id);
+  const handleDeleteClick = (item) => {
+    setDeleteItemId(item._id);  // Ensure only the _id is set, not the whole item object
     setShowDeleteConfirm(true);
   };
 

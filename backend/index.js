@@ -12,11 +12,20 @@ const PORT = process.env.PORT || 5001;
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    // Dynamically setting the origin based on the request's Origin header
+    origin: (origin, callback) => {
+      // Allow requests from any origin (you can further limit this if needed)
+      if (!origin || origin.includes("localhost")) {
+        callback(null, true); // Allow localhost-based requests
+      } else {
+        callback(new Error("Not allowed by CORS")); // Reject requests from other origins
+      }
+    },
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
+
 
 app.use(express.json());
 app.use(cors());
