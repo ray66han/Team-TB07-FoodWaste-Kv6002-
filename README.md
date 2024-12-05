@@ -35,7 +35,7 @@ git clone https://github.com/ray66han/Team-TB07-FoodWaste-Kv6002-.git
 2️⃣ Set Up the Backend  
 Navigate to the `backend/` folder: 
 ```bash
-cd Team-TB07-FoodWaste-Kv6002/backend
+cd Team-TB07-FoodWaste-Kv6002-/backend
 ``` 
 
 Install dependencies:  
