@@ -63,7 +63,7 @@ Keep your backend server running and open a new terminal for the front end.
 3️⃣ Set Up the Frontend  
 Navigate to the `react-app/` folder: 
 ```bash
-cd ../react-app
+cd Team-TB07-FoodWaste-Kv6002-/react-app
 ``` 
 
 Install dependencies:
