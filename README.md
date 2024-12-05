@@ -31,7 +31,6 @@ Follow the steps below to set up and run the project locally:
 ```bash
 git clone https://github.com/ray66han/Team-TB07-FoodWaste-Kv6002-.git
 ```
-📝 *Note: Replace `your-username` with your actual GitHub username.*
 
 2️⃣ Set Up the Backend  
 Navigate to the `backend/` folder: 
@@ -44,21 +43,15 @@ Install dependencies:
 npm install
 ```  
 
-Create a `.env` file in the `backend/` folder and configure the following variables:
-```bash
-MONGODB_URI=mongodb+srv://shihanaqib:q4P2YcOCq1qQ14HA@tb07.42zr7.mongodb.net/ 
-PORT=5000
-```
-
-📝 *Note: Update the `PORT` if required. If changed, modify `react-app/src/components/config.json` accordingly:*
-```bash
-{ "API_URL": "http://localhost:5000" }
-```  
-
 Start the backend server: 
 ```bash
 node index.js
 ```
+
+📝 *Note: If the current PORT is being used by something else update the `PORT`  in the backend/.env file  to something else (e.g. PORT=5001) if you do change the PORT make sure you modify `react-app/src/components/config.json` accordingly to your new port Ex:- :*
+```bash
+{ "API_URL": "http://localhost:5001" }
+```  
 
 3️⃣ Set Up the Frontend  
 Navigate to the `react-app/` folder: 
@@ -78,7 +71,10 @@ npm run dev
 
 Open your browser and navigate to the URL displayed in the terminal (typically `http://localhost:5173`).
 
-Alternatively, once installed and run once, you can start both the backend and frontend simultaneously:
+**Make sure both the backend server and front end are running at the same time**
+🎉 **ExpiryAlert should now be running!**
+
+Alternatively, once all the dependencies are installed and run once, you can start both the backend and frontend simultaneously:
 ```bash
 cd ..
 ```
@@ -86,6 +82,4 @@ cd ..
 ```bash
 npm run start
 ```  
-
-🎉 **Your FoodWaste System is now up and running!**
 
