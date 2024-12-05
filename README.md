@@ -53,6 +53,13 @@ node index.js
 { "API_URL": "http://localhost:5001" }
 ```  
 
+The backend should now be running on you PORT and you should be connected to the database, To confirm you should see the following log in your terminal:
+```bash
+Server is running on port 5000
+Connected to MongoDB
+```
+Keep your backend server running and open a new terminal for the front end. 
+
 3️⃣ Set Up the Frontend  
 Navigate to the `react-app/` folder: 
 ```bash
