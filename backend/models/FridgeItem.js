@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// Define the schema for fridge items
 const fridgeItemSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
@@ -31,5 +32,5 @@ fridgeItemSchema.pre("save", function (next) {
   }
   next();
 });
-
+// Export the model for fridge items
 module.exports = mongoose.model("FridgeItem", fridgeItemSchema);

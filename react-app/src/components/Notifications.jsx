@@ -5,7 +5,7 @@ import config from './config.json';
 const Notifications = ({ onClose }) => {
   const apiUrl = config.API_URL;
   const [preference, setPreference] = useState("Daily"); // Default notification preference
-  const [expiringItems, setExpiringItems] = useState([]); // State to store fetched items
+  const [expiringItems, setExpiringItems] = useState([]); // Store fetched items
   const [loading, setLoading] = useState(false);
 
   // Fetch expiring items
@@ -37,7 +37,7 @@ const Notifications = ({ onClose }) => {
     };
 
     loadPreferenceAndItems();
-  }, []); // Run only when the modal is mounted
+  }, []);  
 
   // Fetch expiring items whenever the preference changes
   useEffect(() => {
@@ -50,7 +50,7 @@ const Notifications = ({ onClose }) => {
       localStorage.setItem("notificationPreference", preference);
       console.log(`Preference saved: ${preference}`);
       await fetchExpiringItems(preference); // Refetch items based on the saved preference
-      onClose(); // Close the modal after saving
+      onClose(); 
     } catch (error) {
       console.error("Failed to save preference:", error);
     }
@@ -75,7 +75,7 @@ const Notifications = ({ onClose }) => {
           <ul>
             {expiringItems.map((item) => (
               <li key={item._id}>
-                {item.name} expires by {item.expiryDate}
+                {item.name} expires by {item.expiryDate} {/* Display item details */}
               </li>
             ))}
           </ul>
@@ -87,7 +87,7 @@ const Notifications = ({ onClose }) => {
         </h3>
         <select
           value={preference}
-          onChange={(e) => setPreference(e.target.value)}
+          onChange={(e) => setPreference(e.target.value)} // Update preference on change
           className="dropdown"
         >
           <option value="Daily">Daily</option>

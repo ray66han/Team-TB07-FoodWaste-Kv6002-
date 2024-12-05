@@ -8,7 +8,8 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  function handleLogin() {
+  //hardcoded login page
+  function handleLogin() { 
     const hardcodedUsername = "expiryalertUser01";
     const hardcodedPassword = "123456Gh@!";
 
@@ -59,9 +60,7 @@ function LoginPage() {
         </div>
       </div>
     </div>
-
-    {/* --------------------------------------------Footer Section Start Here-------------------------------------------- */} 
-    <Footer />  {/* Include Footer here */}
+    <Footer />  
     </>
   );
 }

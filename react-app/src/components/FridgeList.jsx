@@ -5,14 +5,14 @@ import EditIcon from "../assets/icons/editing.png";
 import DeleteIcon from "../assets/icons/delete.png";
 import config from './config.json';
 
-
+// Component for displaying and managing the list of fridge items
 const FridgeList = ({ onItemSelected, onStatusChange }) => {
   const apiUrl = config.API_URL;
   const [items, setItems] = useState([]);
-  const [showForm, setShowForm] = useState(false);
-  const [editItem, setEditItem] = useState(null);
-  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
-  const [deleteItemId, setDeleteItemId] = useState(null);
+  const [showForm, setShowForm] = useState(false); // Display the form
+  const [editItem, setEditItem] = useState(null); // Item to edit
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false); // Delete items
+  const [deleteItemId, setDeleteItemId] = useState(null); // ID of the item to delete
 
   const fetchItems = () => {
     fetch(`${apiUrl}/items`)
@@ -25,18 +25,21 @@ const FridgeList = ({ onItemSelected, onStatusChange }) => {
     fetchItems();
   }, []);
 
+  // Open the form for adding a new item
   const handleAddButtonClick = () => {
     setEditItem(null);
     setShowForm(true);
   };
 
+  // Open the form for editing an existing item
   const handleEditButtonClick = (item) => {
     setEditItem(item);
     setShowForm(true);
   };
 
+   // Handle the delete button click
   const handleDeleteClick = (item) => {
-    setDeleteItemId(item._id);  // Ensure only the _id is set, not the whole item object
+    setDeleteItemId(item._id);  // Remove the item from state
     setShowDeleteConfirm(true);
   };
 
@@ -46,6 +49,7 @@ const FridgeList = ({ onItemSelected, onStatusChange }) => {
     setShowDeleteConfirm(false);
   };
 
+   // Toggle the status (used/wasted) of an item
   const handleStatusChange = async (itemId, currentStatus) => {
     try {
       const response = await fetch(`${apiUrl}/items/${itemId}`, {
@@ -55,7 +59,7 @@ const FridgeList = ({ onItemSelected, onStatusChange }) => {
       });
 
       if (response.ok) {
-        fetchItems();
+        fetchItems(); // Refresh the list after status update
         onStatusChange();
       } else {
         console.error("Failed to update item status on the server");
@@ -65,17 +69,21 @@ const FridgeList = ({ onItemSelected, onStatusChange }) => {
     }
   };
 
+  // Handle item selection for displaying tips
   const handleSelectItem = (item) => {
     onItemSelected(item.category);
   };
 
+  // Update state when the form is submitted
   const handleFormSubmit = (submittedItem) => {
     setItems((prevItems) => {
       if (editItem) {
+        // Update existing item in state
         return prevItems.map((item) =>
           item._id === submittedItem._id ? submittedItem : item
         );
       } else {
+        // Add new item to state
         return [...prevItems, submittedItem];
       }
     });
@@ -88,6 +96,7 @@ const FridgeList = ({ onItemSelected, onStatusChange }) => {
     <div>
       <div className="fridge-header">
         <h2>Fridge</h2>
+        {/* Button to open form for adding an item */}
         <button className="add-item-btn" onClick={handleAddButtonClick}>
           Add Item +
         </button>
@@ -100,7 +109,7 @@ const FridgeList = ({ onItemSelected, onStatusChange }) => {
           onSubmit={handleFormSubmit}
         />
       )}
-
+      {/* Render delete confirmation if toggled */}
       {showDeleteConfirm && (
         <div className="modal-overlay">
           <div className="modal-content">
@@ -115,6 +124,7 @@ const FridgeList = ({ onItemSelected, onStatusChange }) => {
         </div>
       )}
 
+ {/* Table displaying fridge items */}
 <table>
   <thead>
     <tr>
@@ -142,6 +152,7 @@ const FridgeList = ({ onItemSelected, onStatusChange }) => {
           <td>£{item.price}</td>
           <td>{item.quantity}</td>
           <td>
+             {/* Checkbox for toggling item status */}
           <label className={`custom-checkbox ${isExpired ? "disabled" : ""}`}>
             <input
               type="checkbox"
@@ -152,11 +163,13 @@ const FridgeList = ({ onItemSelected, onStatusChange }) => {
             </label>
           </td>
           <td>
+            {/* Edit button */}
           <button onClick={() => handleEditButtonClick(item)} disabled={isExpired}  className="edit-button">
            <img src={EditIcon} alt="Edit" style={{ width: "20px", height: "20px" }} />
           </button>
          </td>
           <td>
+             {/* Delete button */}
           <button onClick={() => handleDeleteClick(item)} className="delete-button">
            <img src={DeleteIcon} alt="Delete" style={{ width: "20px", height: "20px" }} />
           </button>

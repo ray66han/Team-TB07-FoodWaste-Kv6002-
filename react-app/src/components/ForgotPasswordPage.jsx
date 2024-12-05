@@ -1,16 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Footer from './Footer'; // Importing your existing Footer
-import './styles/ForgotPasswordPage.css'; // Add the custom styles for the page
+import Footer from './Footer'; 
+import './styles/ForgotPasswordPage.css'; 
 
 function ForgotPasswordPage() {
   const [email, setEmail] = useState('');
-  const navigate = useNavigate(); // Used to redirect to login page after submit
+  const navigate = useNavigate();  
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would handle the submission logic, like API calls.
-    console.log("Password reset link sent to:", email);
+    // Display message to the user
+    alert(`Password reset link sent to: ${email}`);
 
     // Redirect to login page after form submission
     navigate("/login");
@@ -44,7 +44,7 @@ function ForgotPasswordPage() {
           </div>
         </div>
       </div>
-      <Footer /> {/* Footer */}
+      <Footer /> 
     </>
   );
 }

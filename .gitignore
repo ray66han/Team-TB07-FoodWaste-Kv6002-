@@ -1,8 +1,6 @@
 # Node.js / Express (Backend)
 node_modules/
 backend/node_modules/
-.env
-*.env.*
 .DS_Store
 logs/
 *.log

@@ -347,7 +347,7 @@ return (
         </div>
 
         {/* --------------------------------------------Footer Section Start Here-------------------------------------------- */} 
-        <Footer />  {/* Include Footer here */}
+        <Footer />  
     </>
 );
 }

@@ -1,106 +1,93 @@
 # Team-TB07-FoodWaste-Kv6002-
 
-This repository will be used by TB07 team (KV6002) regarding to build a Food Waste system.
+Welcome to the **FoodWaste System**! This project was developed by **Team TB07** as part of **Module KV6002**.
 
 
-# Prerequisites
-Ensure you have the following installed on your system:
+## 🔧 Prerequisites
 
-Node.js 
+Ensure the following are installed on your system:
 
-#download and install Node.js
+- **Node.js(+npm included)**  
+  Install using Chocolatey (Windows):  
+  ```bash
+  choco install nodejs-lts --version="20.18.0"
+- **Git (For cloning the repository)**
 
-```bash
-choco install nodejs-lts --version="20.18.0"
-```
+## 📂 Project Structure
 
-npm (comes with Node.js)
+The project is organized into two main parts:
 
-Git (for cloning the repository)
+- **Backend**: Node.js/Express server  
+  📁 Located in the `backend/` folder.
 
-# Project Structure
-The project is divided into two parts:
+- **Frontend**: React application  
+  📁 Located in the `react-app/` folder.
 
-Backend: Node.js/Express server (located in the backend/ folder).
-Frontend: React app (located in the react-app/ folder).
+## 🚀 Installation and Setup
 
-# Installation and Setup
 Follow the steps below to set up and run the project locally:
 
-1. Clone the Repository
-
+1️⃣ Clone the Repository  
 ```bash
-git clone https://github.com/your-username/Team-TB07-FoodWaste-Kv6002.git
-```
-Note: replace 'your-username' with your actual username
-
-Install MongoDB locally by following the [installation guide](https://www.mongodb.com/docs/manual/installation/).
-
-After installation, start MongoDB locally by running the following command in your terminal:
-```bash
-mongod
+git clone https://github.com/ray66han/Team-TB07-FoodWaste-Kv6002-.git
 ```
 
-2. Set Up the Backend
-Navigate to the backend/ folder:
-
+2️⃣ Set Up the Backend  
+Navigate to the `backend/` folder: 
 ```bash
-cd Team-TB07-FoodWaste-Kv6002
-```
-```bash
-cd backend
-```
+cd Team-TB07-FoodWaste-Kv6002-/backend
+``` 
 
-Install dependencies:
-
+Install dependencies:  
 ```bash
 npm install
-```
+```  
 
-Create a .env file in the backend folder and configure the following variables:
-
-```bash
-MONGODB_URI=<your-mongodb-connection-string>
-PORT=5000
-```
-Note: Replace <your-mongodb-connection-string> with your MongoDB URI. 
-Here is a guest URI:
-```bash
-MONGODB_URI=mongodb+srv://Guest:ylweTuQngASVPIMh@tb07.42zr7.mongodb.net/
-```
-
-Start the backend server:
-
+Start the backend server: 
 ```bash
 node index.js
 ```
 
-3. Set Up the Frontend
-Navigate to the react-app/ folder:
+📝 *Note: If the current PORT is being used by something else update the `PORT`  in the backend/.env file  to something else (e.g. PORT=5001) if you do change the PORT make sure you modify `react-app/src/components/config.json` accordingly to your new port Ex:- :*
+```bash
+{ "API_URL": "http://localhost:5001" }
+```  
 
-```bash 
-cd ../react-app
+The backend should now be running on you PORT and you should be connected to the database, To confirm you should see the following log in your terminal:
+```bash
+Server is running on port 5000
+Connected to MongoDB
 ```
+Keep your backend server running and open a new terminal for the front end. 
+
+3️⃣ Set Up the Frontend  
+Navigate to the `react-app/` folder: 
+```bash
+cd Team-TB07-FoodWaste-Kv6002-/react-app
+``` 
 
 Install dependencies:
-
-```bash
+```bash  
 npm install
-```
+```  
+
 Start the React development server:
-
-```bash 
+```bash
 npm run dev
-```
-Open your browser and navigate to the URL displayed in the terminal (typically http://localhost:5173).
+```  
 
+Open your browser and navigate to the URL displayed in the terminal (typically `http://localhost:5173`).
 
-Alternatively once installed and run once you can run both the front end and backend at once:
+**Make sure both the backend server and front end are running at the same time**
 
+🎉 **ExpiryAlert should now be running!**
+
+Alternatively, once all the dependencies are installed and run once, you can start both the backend and frontend simultaneously by navigating to the main directory 'Team-TB07-FoodWaste-Kv6002-':
 ```bash
 cd ..
 ```
+
 ```bash
 npm run start
-```
+```  
 

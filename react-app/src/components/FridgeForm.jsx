@@ -2,21 +2,23 @@ import React, { useState, useEffect } from "react";
 import "./styles/FridgeForm.css";
 import config from './config.json';
 
-
+// Component for editing/adding to the list of fridge items
 const FridgeForm = ({ editItem, onClose, onSubmit }) => {
   const apiUrl = config.API_URL;
+  // Initialize form state with existing item data 
   const [name, setName] = useState(editItem ? editItem.name : "");
   const [expiryDate, setExpiryDate] = useState(editItem ? editItem.expiryDate : "");
   const [price, setPrice] = useState(editItem ? editItem.price : "");
   const [quantity, setQuantity] = useState(editItem ? editItem.quantity : "");
   const [category, setCategory] = useState(editItem ? editItem.category : "");
 
-  const today = new Date().toISOString().split("T")[0];
+  const today = new Date().toISOString().split("T")[0];  // Get todays date
 
   // Predefined categories for selection
   const categories = ["Dairy", "Meat", "Vegetables", "Fruits", "Beverages", "Miscellaneous"];
 
   useEffect(() => {
+    // Update form fields if editing an item
     if (editItem) {
       setName(editItem.name);
       setExpiryDate(editItem.expiryDate);
@@ -27,9 +29,10 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
   }, [editItem]);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const itemData = { name, expiryDate, price, quantity, category };
+    e.preventDefault(); // Prevent default form submission
+    const itemData = { name, expiryDate, price, quantity, category }; // Collect form data
 
+     // Send a PUT request if editing an item or POST for a new item
     const response = editItem
       ? await fetch(`${apiUrl}/items/${editItem._id}`, {
           method: "PUT",
@@ -43,7 +46,7 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
         });
 
     const newItem = await response.json();
-    onSubmit(newItem);
+    onSubmit(newItem); // Pass updated/new item to parent component
     onClose();
   };
 
@@ -60,6 +63,7 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
         value={name}
         onChange={(e) => {
          const value = e.target.value;
+          // Allow only letters and spaces for the name field
          if (/^[a-zA-Z\s]*$/.test(value)) {
            setName(value);
          }
@@ -75,7 +79,7 @@ const FridgeForm = ({ editItem, onClose, onSubmit }) => {
           type="date"
           value={expiryDate}
           onChange={(e) => setExpiryDate(e.target.value)}
-          min={today}  
+          min={today}  // Prevent selecting past dates
           required
         />
       </div>
