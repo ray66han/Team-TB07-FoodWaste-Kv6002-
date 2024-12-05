@@ -8,7 +8,7 @@ const UpdateProfile = ({ onClose }) => {
     oldPassword: '',
     newPassword: '',
   });
-
+// Function to handle input changes and update the form state
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -16,7 +16,7 @@ const UpdateProfile = ({ onClose }) => {
 
   const handleUpdate = () => {
     console.log('Updated Profile:', formData);
-    onClose(); // Close the modal after updating
+    onClose();  
   };
 
   return (

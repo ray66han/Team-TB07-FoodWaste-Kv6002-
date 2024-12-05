@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import './styles/RegisterPage.css'; // Add the custom styles for the page
+import './styles/RegisterPage.css';  
 import Footer from './Footer';
 
 
@@ -78,7 +78,7 @@ function RegisterPage() {
       </div>
 
     </div>
-    <Footer /> {/* Include Footer */}
+    <Footer />  
     </>
   );
 }

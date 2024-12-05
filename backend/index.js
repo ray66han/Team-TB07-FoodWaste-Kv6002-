@@ -26,7 +26,6 @@ app.use(
   })
 );
 
-
 app.use(express.json());
 app.use(cors());
 
@@ -232,9 +231,9 @@ app.delete("/items/:id", async (req, res) => {
   }
 });
 
+//Display savings/wasted stats
 app.get("/savings-stats", async (req, res) => {
   try {
-    // Start of the current month
     const currentDate = new Date();
     const startOfMonth = new Date(
       currentDate.getFullYear(),
@@ -299,6 +298,7 @@ cron.schedule("0 0 1 * *", async () => {
   }
 });
 
+//get expriring items
 app.get("/api/expiring-items", async (req, res) => {
   const { timeframe } = req.query;
   const currentDate = new Date();

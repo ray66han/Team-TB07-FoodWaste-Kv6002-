@@ -4,12 +4,17 @@ import './styles/Navbar.css';
 const Navbar = ({ onSettingsToggle }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
+       {/* Logo and homepage link */}
       <a className="navbar-brand" href="/">
         <img src="/src/assets/images/Navbar/ExpiryAlert_logo.png" alt="Logo" className="logo" />
       </a>
+      {/* Navigation links and settings button */}
       <div className="navbar-nav ml-auto">
+         {/* Link to the fridge page */}
         <a className="nav-item nav-link" href="/fridge">Fridge</a>
+         {/* Link to the log-in page */}
         <a className="nav-item nav-link" href="/login">Log-In</a>
+        {/* Button to toggle the settings */}
         <button
           className="nav-item nav-link settings-btn"
           onClick={onSettingsToggle}

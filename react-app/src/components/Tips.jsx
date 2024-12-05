@@ -6,16 +6,18 @@ const Tips = ({ selectedCategory }) => {
   const [tips, setTips] = useState([]);
 
   useEffect(() => {
+    // Fetch tips when a category is selected
     if (selectedCategory) {
       fetch(`${apiUrl}/tips/${selectedCategory}`)
         .then((response) => response.json())
-        .then((data) => setTips(data.tips))
+        .then((data) => setTips(data.tips)) // Update tips state with fetched data
         .catch((error) => console.error("Error fetching tips:", error));
     }
-  }, [selectedCategory]);
+  }, [selectedCategory]); // Re-run this effect when the selected category changes
 
   return (
     <div>
+      {/* Display the selected category */}
       <h3>Tips for {selectedCategory}</h3>
       <ul>
         {tips.length > 0 ? (

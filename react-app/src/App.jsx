@@ -13,11 +13,14 @@ import config from './components/config.json';
 
 function App() {
   const apiUrl = config.API_URL;
+  // State to store fridge items and settings dropdown visibility
   const [items, setItems] = useState([]);
   const [showSettings, setShowSettings] = useState(false);
 
+  // Toggle the visibility of the settings dropdown
   const toggleSettingsDropdown = () => setShowSettings((prev) => !prev);
 
+  // Fetch items from the API when the component mounts
   useEffect(() => {
     fetch(`${apiUrl}/items`)
       .then((response) => response.json())
@@ -27,8 +30,10 @@ function App() {
 
   return (
     <Router>
+      {/* Render the Navbar and pass the toggle function for settings */}
       <Navbar onSettingsToggle={toggleSettingsDropdown} />
       <SettingsPage show={showSettings} onClose={() => setShowSettings(false)} />
+      {/* Define routes for different pages */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/fridge" element={<FridgePage items={items} />} />

@@ -5,6 +5,7 @@ import config from './config.json';
 const Savings = ({ refresh }) => {
   const apiUrl = config.API_URL;
   const [stats, setStats] = useState({
+    // State to store savings and waste statistics
     savedMoney: 0,
     wastedMoney: 0,
     itemsSaved: 0,
@@ -13,13 +14,12 @@ const Savings = ({ refresh }) => {
   });
 
   useEffect(() => {
-    // console.log("Fetching savings stats due to refresh change:", refresh);
+    // Fetch savings stats
     const fetchStats = async () => {
       try {
         const response = await fetch(`${apiUrl}/savings-stats`);
         if (!response.ok) throw new Error("Network response for Savings.jsx was not ok");
         const data = await response.json();
-        // console.log("Fetched savings stats:", data);
         if (data && typeof data.savedMoney === 'number' && typeof data.wastedMoney === 'number') {
           setStats(data);
         } else {

@@ -5,11 +5,12 @@ import Savings from "./Savings";
 import './styles/FridgePage.css';
 
 const FridgePage = () => {
+  // State to track the selected category for displaying tips
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [refresh, setRefresh] = useState(false);
 
   const handleItemSelected = (category) => {
-    setSelectedCategory(category);
+    setSelectedCategory(category); // Update the selected category
   };
 
   const toggleRefresh = () => {
@@ -23,11 +24,11 @@ const FridgePage = () => {
           <FridgeList onItemSelected={handleItemSelected} onStatusChange={toggleRefresh}/>
         </div>
         <div className="side-info">
-          <Savings refresh={refresh}/>
+          <Savings refresh={refresh}/> {/* Refresh stats when status changes */}
         </div>
       </div>
       <div className="tips-section">
-        <Tips selectedCategory={selectedCategory} />
+        <Tips selectedCategory={selectedCategory} /> {/* Show category-specific tips */}
       </div>
     </div>
   );
