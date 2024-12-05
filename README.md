@@ -72,9 +72,10 @@ npm run dev
 Open your browser and navigate to the URL displayed in the terminal (typically `http://localhost:5173`).
 
 **Make sure both the backend server and front end are running at the same time**
+
 🎉 **ExpiryAlert should now be running!**
 
-Alternatively, once all the dependencies are installed and run once, you can start both the backend and frontend simultaneously:
+Alternatively, once all the dependencies are installed and run once, you can start both the backend and frontend simultaneously by navigating to the main directory 'Team-TB07-FoodWaste-Kv6002-':
 ```bash
 cd ..
 ```
