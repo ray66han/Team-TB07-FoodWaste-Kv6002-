@@ -77,8 +77,8 @@ th {
   background-color: #fff;
   padding: 30px;
   border-radius: 10px;
-  width: 400px; /* Increased width for more space */
-  max-width: 80%; /* Ensures it fits smaller screens */
+  width: 400px;
+  max-width: 80%; 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
@@ -166,22 +166,22 @@ th {
 }
 
 .custom-checkbox input {
-  appearance: none; /* Remove default styling */
+  appearance: none;
   width: 100%;
   height: 100%;
   margin: 0;
   background-color: transparent;
-  z-index: 2; /* Ensure checkbox stays clickable */
+  z-index: 2;
   cursor: pointer;
 }
 
 .custom-checkbox input:checked {
-  background-color: #4caf50; /* Green when checked */
+  background-color: #4caf50; 
   border-color: #4caf50;
 }
 
 .custom-checkbox input:checked::before {
-  content: "✓"; /* Add tick manually */
+  content: "✓"; 
   font-size: 18px;
   font-weight: bold;
   color: white;

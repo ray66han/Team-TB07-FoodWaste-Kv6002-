@@ -1,6 +1,5 @@
 /* RegisterPage.css */
 
-/* Set the background image and ensure it takes full screen height */
 .register-page {
     background: url('/src/assets/images/Register/RegisterImage.jpg') no-repeat center center fixed;
     background-size: cover;
@@ -12,7 +11,6 @@
     flex-direction: column; /* Ensures form and footer are in a column layout */
   }
   
-  /* Form container: Set proper height, and align the form in the center */
   .register-container {
     /* background: rgba(0, 0, 0, 0.6); Transparent black background */
     padding: 30px;

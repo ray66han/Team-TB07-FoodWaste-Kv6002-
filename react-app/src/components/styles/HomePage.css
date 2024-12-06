@@ -63,14 +63,14 @@
 }
 
 .banner-btn:hover {
-  background-color: #c96f49; /* Button Hover - Darker button color on hover */
+  background-color: #c96f49; 
 }
 
 /* ____________________About Us Section Styles - Starts Here____________________ */
 .about-us-section {
   margin-top: 50px;
   background-color: white;
-  border: 2px solid #94bf73; /* Border color set to #94BF73 */
+  border: 2px solid #94bf73; 
   border-radius: 10px; /* Rounded corners */
   padding: 40px;
 }
@@ -100,7 +100,7 @@
   position: absolute;
   bottom: -5px;
   left: 0;
-  width: 100%; /* The underline will only span the width of the text */
+  width: 100%; 
   height: 3px;
   background-color: #94bf73; /* Underline color */
 }
@@ -233,7 +233,7 @@ strong {
 .impact-image-section {
   flex: 1;
   display: flex;
-  justify-content: space-around; /* Distribute images with space between */
+  justify-content: space-around; 
   align-items: center;
   transition: transform 0.3s ease;
 }
@@ -249,7 +249,7 @@ strong {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 15px; /* Add space between images */
+  margin: 0 15px; 
 }
 
 .impact-image img {
@@ -291,16 +291,14 @@ strong {
 }
 
 /*  ____________________Educational Video Section Styles - Starts Here ____________________ */
-/* General styling for the Educational Videos section */
-/* Educational Video Section Styles */
 .educational-video-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 0; /* Added more padding for better spacing */
+  padding: 40px 0; 
   text-align: center;
-  max-width: 1200px; /* Limit max width for better alignment */
-  margin: 0 auto; /* Center the section horizontally */
+  max-width: 1200px; 
+  margin: 0 auto;
 }
 
 /* Section Header Styling */
@@ -310,7 +308,7 @@ strong {
 
 .section-header h2 {
   font-size: 32px;
-  font-weight: 700; /* Make the header bolder */
+  font-weight: 700; 
   position: relative;
   padding-bottom: 8px;
 }
@@ -359,14 +357,14 @@ strong {
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
   border: none;
-  padding: 15px 25px; /* Increased padding for larger buttons */
-  font-size: 22px; /* Increased font size for better visibility */
+  padding: 15px 25px; 
+  font-size: 22px; 
   cursor: pointer;
   position: absolute;
   top: 50%;
   z-index: 1;
-  transform: translateY(-50%); /* Center buttons vertically */
-  transition: background-color 0.3s ease; /* Smooth transition effect */
+  transform: translateY(-50%); 
+  transition: background-color 0.3s ease; 
 }
 
 .prev {
@@ -385,57 +383,56 @@ strong {
 /* Make iframe responsive for smaller screens */
 @media (max-width: 768px) {
   .carousel-video {
-    height: 300px; /* Adjust height for smaller screens */
+    height: 300px; 
   }
 
   .carousel-container {
-    width: 90%; /* Adjust width for smaller screens */
+    width: 90%; 
   }
 
   .carousel-control {
-    padding: 12px 18px; /* Smaller buttons for mobile */
-    font-size: 20px; /* Smaller text on buttons */
+    padding: 12px 18px; 
+    font-size: 20px; 
   }
 }
 
 /* Educational Video Text Section */
 .educational-video-text {
   font-size: 18px;
-  line-height: 1.7; /* Increased line height for better readability */
-  max-width: 900px; /* Slightly larger width for text */
-  margin: 0 auto 30px auto; /* Center horizontally with more space at the bottom */
-  padding: 15px 25px; /* Add more padding around the text */
-  background-color: #f4f9f4; /* Light background color to make it stand out */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); /* Slightly larger shadow for more emphasis */
+  line-height: 1.7; 
+  max-width: 900px; 
+  margin: 0 auto 30px auto; 
+  padding: 15px 25px; 
+  background-color: #f4f9f4; 
+  border-radius: 10px; 
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1); 
 }
 
-/* Optional: Hover effect for interactivity */
 .educational-video-text p {
-  transition: transform 0.3s ease, color 0.3s ease; /* Smooth transition effect */
+  transition: transform 0.3s ease, color 0.3s ease; 
 }
 
 .educational-video-text p:hover {
-  transform: scale(1.05); /* Slightly enlarge the text on hover */
-  color: #94bf73; /* Change color on hover */
+  transform: scale(1.05);
+  color: #94bf73; 
 }
 
 /* Responsive Typography for Mobile */
 @media (max-width: 480px) {
   .section-header h2 {
-    font-size: 26px; /* Smaller font size for mobile */
+    font-size: 26px; 
   }
 
   .educational-video-text {
-    font-size: 16px; /* Smaller text for mobile */
-    padding: 10px 15px; /* Less padding on mobile */
-    max-width: 100%; /* Ensure text block uses full width */
+    font-size: 16px; 
+    padding: 10px 15px; 
+    max-width: 100%; 
   }
 }
 /*  ____________________Join the Movement Section Styles - Starts Here ____________________ */
 
 .join-movement-section {
-  height: 60vh; /* 60% of the viewport height */
+  height: 60vh; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -479,7 +476,7 @@ strong {
   margin-bottom: 20px;
   position: relative;
   padding-bottom: 5px;
-  display: inline-block; /* Make the title inline to limit the underline to the text */
+  display: inline-block; 
 }
 
 /* Underline effect for the header */
@@ -490,7 +487,7 @@ strong {
   left: 0;
   width: 100%;
   height: 3px;
-  background-color: #94bf73; /* Underline color */
+  background-color: #94bf73; 
 }
 
 /* Paragraph and Highlight Styling */
@@ -530,7 +527,6 @@ strong {
   box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.25);
 }
 
-/* Optional: Make the layout responsive for smaller screens */
 @media (max-width: 768px) {
   .join-movement-content {
     flex-direction: column;
@@ -543,17 +539,17 @@ strong {
   }
 
   .join-movement-image img {
-    height: 40vh; /* Adjust image height on smaller screens */
+    height: 40vh; 
   }
 }
 
 /* ____________________Recycle Bins Section Styles - Starts Here ____________________ */
 .recycle-bins-section {
   background-color: white; /* White background */
-  padding: 40px 20px; /* Padding on top and bottom, decent padding on the left and right */
+  padding: 40px 20px; 
   text-align: center;
-  margin: 0 auto; /* Center the section */
-  height: 90vh; /* Set the height to 70% of the viewport height */
+  margin: 0 auto;
+  height: 90vh; 
 }
 
 /* Header styles with underline */
@@ -561,7 +557,7 @@ strong {
   font-size: 30px;
   margin-bottom: 20px;
   position: relative;
-  display: inline-block; /* For the underline effect */
+  display: inline-block; 
   padding-bottom: 5px;
 }
 
@@ -573,7 +569,7 @@ strong {
   left: 0;
   width: 100%;
   height: 3px;
-  background-color: #94bf73; /* Underline color */
+  background-color: #94bf73; 
 }
 
 /* Recycle Bins Section Styling */
@@ -597,7 +593,7 @@ strong {
 /* Color Coding for Specific Bins */
 .general-waste {
   font-weight: bold;
-  color: #b3b3b3; /* Grey or Black color for General Waste Bin */
+  color: #b3b3b3; 
 }
 
 .recycle-bin {
@@ -607,7 +603,7 @@ strong {
 
 .compost-bin {
   font-weight: bold;
-  color: #2b8a3e; /* Green color for Compost Bin */
+  color: #2b8a3e; 
 }
 
 /* Container Styling */
@@ -698,7 +694,7 @@ strong {
 /* ____________________References to Reduce Food Waste Section Styles - Starts Here ____________________ */
 .references-section {
   background-color: white; /* White background */
-  padding: 40px 20px; /* Padding on top and bottom, decent padding on the left and right */
+  padding: 40px 20px; 
   text-align: center;
   margin: 0 auto; /* Center the section */
 }

@@ -1,7 +1,7 @@
 /* Background container */
 .login-container {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("/src/assets/images/Login/loginImage.jpg"); /* Replace with your background image */
+    url("/src/assets/images/Login/loginImage.jpg");
   background-size: cover;
   background-position: center;
   height: 86vh;

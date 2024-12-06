@@ -35,8 +35,8 @@
 .carousel-photo {
     position: relative;
     flex-shrink: 0;
-    min-width: 60%;  /* Minimum width for each photo */
-    height: 600px; /* Fixed height */
+    min-width: 60%;
+    height: 600px;
     margin-right: 10px;
     border-radius: 10px;
     overflow: hidden;
@@ -48,12 +48,12 @@
 
 /* Ensure the image fits the container without distortion (cover) */
 .carousel-image {
-    max-width: 100%;       /* Ensures the image does not overflow horizontally */
-    max-height: 100%;      /* Ensures the image does not overflow vertically */
-    object-fit: cover;     /* Keeps the image's aspect ratio while filling the container */
-    width: auto;           /* Adjusts width dynamically based on height */
-    height: auto;          /* Adjusts height dynamically based on width */
-    border-radius: 10px;   /* Adds rounded corners */
+    max-width: 100%;       
+    max-height: 100%;     
+    object-fit: cover;    
+    width: auto;          
+    height: auto;         
+    border-radius: 10px;  
 }
 
 /* Caption styling */

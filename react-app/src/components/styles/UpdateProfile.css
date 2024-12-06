@@ -35,7 +35,7 @@
   
   /* Modal Title */
   .modal-title {
-    color: #94bf73; /* Title color */
+    color: #94bf73; 
     text-align: center;
     font-size: 40px;
     font-weight: bold;
@@ -74,5 +74,5 @@
   }
   
   .update-btn:hover {
-    background-color: #82a763; /* Slightly darker on hover */
+    background-color: #82a763; 
   }

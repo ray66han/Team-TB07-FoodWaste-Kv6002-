@@ -22,11 +22,10 @@
   color: black;
 }
 /* Unified button styles for all action buttons */
- /* Unified button styles for all action buttons */
 .action-btn {
   background: none;
   border: none;
-  color: #333; /* Darker color for better visibility */
+  color: #333; 
   font-size: 16px; /* Slightly larger text */
   font-weight: bold; /* Bold text by default */
   cursor: pointer;
@@ -38,8 +37,8 @@
 }
 
 .action-btn:hover {
-  color: white; /* Blue color for hover effect */
-  font-weight: bolder; /* Make text even bolder on hover */
-  text-align: center; /* Center align the text */
-  transform: scale(1.05); /* Slightly enlarge the text for emphasis */
+  color: white; 
+  font-weight: bolder; 
+  text-align: center; 
+  transform: scale(1.05); 
 }
