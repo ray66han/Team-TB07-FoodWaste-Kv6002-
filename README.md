@@ -24,8 +24,8 @@ The project is organized into two main parts:
 - **Frontend**: React application  
   - 📁 Located in the `react-app/` folder.
   - 🔄 All necessary files are located in `react-app/src/`.
-  - 🖼️ **Images**: Found in the `assets` folder.
-  - 🧩 **Components**: All `.jsx` and `.css` files are in the `components` folder.
+    - 🖼️ **Images**: Found in the `assets` folder.
+    - 🧩 **Components**: All `.jsx` and `.css` files are in the `components` folder.
 
 ## 🚀 Installation and Setup
 
