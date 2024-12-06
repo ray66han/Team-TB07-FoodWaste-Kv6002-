@@ -18,10 +18,14 @@ Ensure the following are installed on your system:
 The project is organized into two main parts:
 
 - **Backend**: Node.js/Express server  
-  📁 Located in the `backend/` folder.
+  - 📁 Located in the `backend/` folder.
+  - 🔄 All necessary files are located in the root.
 
 - **Frontend**: React application  
-  📁 Located in the `react-app/` folder.
+  - 📁 Located in the `react-app/` folder.
+  - 🔄 All necessary files are located in `react-app/src/`.
+  - 🖼️ **Images**: Found in the `assets` folder.
+  - 🧩 **Components**: All `.jsx` and `.css` files are in the `components` folder.
 
 ## 🚀 Installation and Setup
 
