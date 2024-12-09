@@ -1,4 +1,8 @@
 /* ____________________Banner Styles - Starts Here____________________ */
+a {
+  text-decoration: none;
+  color: inherit;
+}
 .banner {
   background-image: url("/src/assets/images/Banner/banner-food-image.jpg");
   background-size: cover;

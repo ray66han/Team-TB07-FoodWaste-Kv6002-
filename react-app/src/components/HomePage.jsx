@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './styles/HomePage.css';
 import './styles/HomeEducationalPhotos.css'
 import Footer from './Footer';
@@ -16,7 +17,7 @@ return (
                         Log in or Sign up to track your food items, stay ahead of expiry dates, and reduce waste effectively.
                     </p>
                 </div>
-                <button className="banner-btn"><b>Log in to Fridge System</b></button>
+                    <button className="banner-btn"><b><a href="/login">Log in to Fridge System</a></b></button>
             </div>
         </div>
 
@@ -260,7 +261,7 @@ return (
                             <span className="highlight"> more sustainable future</span> for all. Together, we can make a difference—
                             <span className="highlight">one meal at a time.</span>
                         </p>
-                        <button className="join-movement-btn"><b>Your Fridge</b></button>
+                        <button className="join-movement-btn"><b><a href="/login">Your Fridge</a></b></button>
                     </div>  
                 </div>
             </div>
