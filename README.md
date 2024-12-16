@@ -27,6 +27,14 @@ The project is organized into two main parts:
     - 🖼️ **Images**: Found in the `assets` folder.
     - 🧩 **Components**: All `.jsx` and `.css` files are in the `components` folder.
 
+## 🔑 Login Details
+
+To log in, use the following credentials:
+
+```javascript
+const hardcodedUsername = "expiryalertUser01";
+const hardcodedPassword = "123456Gh@!";
+```
 ## 🚀 Installation and Setup
 
 Follow the steps below to set up and run the project locally:
