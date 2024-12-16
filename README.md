@@ -32,8 +32,8 @@ The project is organized into two main parts:
 To log in, use the following credentials:
 
 ```javascript
-const hardcodedUsername = "expiryalertUser01";
-const hardcodedPassword = "123456Gh@!";
+Username = "expiryalertUser01"
+HardcodedPassword = "123456Gh@!";
 ```
 ## 🚀 Installation and Setup
 
