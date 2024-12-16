@@ -1,7 +1,6 @@
 # Team-TB07-FoodWaste-Kv6002-
 
-Welcome to the **FoodWaste System**! This project was developed by **Team TB07** as part of **Module KV6002**.
-
+This project was developed by **Team TB07** as part of **Module KV6002**. We focused on the **"How can we support the management of food waste?"** and aimed to build an implementation-oriented system.
 
 ## 🔧 Prerequisites
 
